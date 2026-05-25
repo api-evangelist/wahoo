@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wahoo/main/json-schema/wahoo-workout-schema.json",
+  "title": "Wahoo Workout",
+  "description": "A workout record returned by the Wahoo Cloud API.",
+  "type": "object",
+  "required": ["id", "user_id", "starts", "minutes", "name", "workout_type_id"],
+  "properties": {
+    "id":              { "type": "integer", "format": "int64" },
+    "user_id":         { "type": "integer", "format": "int64" },
+    "starts":          { "type": "string", "format": "date-time" },
+    "minutes":         { "type": "integer", "minimum": 0 },
+    "name":            { "type": "string" },
+    "plan_id":         { "type": ["integer", "null"], "format": "int64" },
+    "workout_token":   { "type": "string" },
+    "workout_type_id": { "type": "integer" },
+    "workout_summary": { "$ref": "wahoo-workout-summary-schema.json" },
+    "created_at":      { "type": "string", "format": "date-time" },
+    "updated_at":      { "type": "string", "format": "date-time" }
+  }
+}

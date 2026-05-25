@@ -1,0 +1,222 @@
+aid: wahoo
+name: Wahoo Fitness
+description: >-
+  Wahoo Fitness is an Atlanta, Georgia endurance-training hardware and software
+  company building cycling and run-training products: the ELEMNT family of GPS
+  bike computers (ACE, ROAM, BOLT), the KICKR family of smart trainers and bikes
+  (KICKR BIKE PRO/SHIFT, KICKR MOVE, KICKR CORE, KICKR ROLLR, KICKR RUN
+  treadmill), TICKR and TRACKR heart-rate monitors and sensors (including
+  TRACKR RADAR rear-facing radar), and SPEEDPLAY road and power pedals. Wahoo
+  publishes a public Cloud API at api.wahooligan.com that allows third-party
+  applications to authenticate Wahoo users via OAuth 2.0 and read/write user
+  profiles, workouts, workout summaries, FIT-file uploads, structured workout
+  plans, GPS routes, and cycling power zones. The Cloud API delivers
+  workout_summary webhook events when the offline_data scope is granted.
+  Companion AppleHealth / native iOS and Android APIs round out the developer
+  surface; access is gated by the Wahoo API Agreement and an app-approval
+  workflow that promotes integrations from sandbox to production.
+type: Index
+position: Provider
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Fitness
+  - Cycling
+  - Endurance Training
+  - Bike Computers
+  - Smart Trainers
+  - Indoor Cycling
+  - Heart Rate
+  - Power Meters
+  - GPS
+  - Wearables
+  - Hardware
+  - FIT Files
+  - Webhooks
+  - OAuth
+url: https://raw.githubusercontent.com/api-evangelist/wahoo/refs/heads/main/apis.yml
+created: '2026-05-25'
+modified: '2026-05-25'
+specificationVersion: '0.20'
+apis:
+  - aid: wahoo:wahoo-cloud-api
+    name: Wahoo Cloud API
+    tags:
+      - Fitness
+      - Cycling
+      - Workouts
+      - OAuth
+    humanURL: https://cloud-api.wahooligan.com/
+    baseURL: https://api.wahooligan.com
+    description: >-
+      OAuth 2.0 REST API that connects Wahoo users to third-party mobile and
+      web applications. Manages user profiles, workouts, workout summaries,
+      FIT-file uploads, structured workout plans, GPS routes, and cycling
+      power zones. Delivers workout_summary webhook events when offline_data
+      scope is granted. Sandbox apps are promoted to production after Wahoo
+      review.
+    properties:
+      - type: Documentation
+        url: https://cloud-api.wahooligan.com/
+      - type: Documentation
+        url: https://developers.wahooligan.com/cloud
+      - type: SignUp
+        url: https://developers.wahooligan.com/
+      - type: TermsOfService
+        url: https://www.wahoofitness.com/wahoo-api-agreement
+      - type: OpenAPI
+        url: openapi/wahoo-cloud-api-openapi.yml
+      - type: AsyncAPI
+        url: asyncapi/wahoo-webhooks-asyncapi.yml
+      - type: JSONSchema
+        url: json-schema/wahoo-workout-schema.json
+      - type: JSONSchema
+        url: json-schema/wahoo-workout-summary-schema.json
+      - type: JSONLD
+        url: json-ld/wahoo-context.jsonld
+      - type: NaftikoCapability
+        url: capabilities/cloud-users.yaml
+      - type: NaftikoCapability
+        url: capabilities/cloud-workouts.yaml
+      - type: NaftikoCapability
+        url: capabilities/cloud-file-uploads.yaml
+      - type: NaftikoCapability
+        url: capabilities/cloud-plans.yaml
+      - type: NaftikoCapability
+        url: capabilities/cloud-routes.yaml
+      - type: NaftikoCapability
+        url: capabilities/cloud-power-zones.yaml
+      - type: NaftikoCapability
+        url: capabilities/cloud-permissions.yaml
+      - type: Plans
+        url: plans/wahoo-plans-pricing.yml
+      - type: RateLimits
+        url: rate-limits/wahoo-rate-limits.yml
+      - type: Vocabulary
+        url: vocabulary/wahoo-vocabulary.yml
+      - type: Example
+        url: examples/wahoo-workout-summary-event-example.json
+      - type: Example
+        url: examples/wahoo-power-zones-example.json
+      - type: Webhook
+        url: https://cloud-api.wahooligan.com/#webhooks
+      - type: Authentication
+        url: https://cloud-api.wahooligan.com/#authentication
+    contact:
+      - FN: Wahoo Developer Support
+        email: wahooapi@wahoofitness.com
+        url: https://developers.wahooligan.com
+  - aid: wahoo:wahoo-ios-api
+    name: Wahoo iOS API
+    tags:
+      - Fitness
+      - Cycling
+      - iOS
+      - SDK
+    humanURL: https://developers.wahooligan.com/
+    description: >-
+      Native iOS SDK for interacting with Wahoo devices directly over BLE/ANT+
+      and integrating with the Wahoo Cloud. Documented at the Wahoo developer
+      portal under the iOS product. Access is gated by the Wahoo API
+      Agreement and an app-approval workflow.
+    properties:
+      - type: Documentation
+        url: https://developers.wahooligan.com/
+      - type: SignUp
+        url: https://developers.wahooligan.com/
+  - aid: wahoo:wahoo-android-api
+    name: Wahoo Android API
+    tags:
+      - Fitness
+      - Cycling
+      - Android
+      - SDK
+    humanURL: https://developers.wahooligan.com/
+    description: >-
+      Native Android SDK for interacting with Wahoo devices over BLE/ANT+
+      and integrating with the Wahoo Cloud. Documented at the Wahoo
+      developer portal under the Android product. Access is gated by the
+      Wahoo API Agreement and an app-approval workflow.
+    properties:
+      - type: Documentation
+        url: https://developers.wahooligan.com/
+      - type: SignUp
+        url: https://developers.wahooligan.com/
+common:
+  - type: Website
+    url: https://www.wahoofitness.com/
+  - type: DeveloperPortal
+    url: https://developers.wahooligan.com/
+  - type: APIReference
+    url: https://cloud-api.wahooligan.com/
+  - type: APIAgreement
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: GitHub
+    url: https://github.com/wahoofitness
+  - type: Support
+    url: https://support.wahoofitness.com/
+  - type: TrainingApp
+    url: https://www.wahoofitness.com/devices/training-app
+  - type: WahooX
+    url: https://wahooxsystm.com/
+  - type: Blog
+    url: https://www.wahoofitness.com/blog
+  - type: Twitter
+    url: https://twitter.com/wahoofitness
+  - type: Instagram
+    url: https://www.instagram.com/wahoofitness/
+  - type: YouTube
+    url: https://www.youtube.com/user/WahooFitness
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/wahoo-fitness/
+properties:
+  - type: PrimaryDomain
+    value: Fitness
+  - type: SecondaryDomain
+    value: Cycling
+  - type: AuthenticationStandard
+    value: OAuth 2.0 (Authorization Code + PKCE)
+  - type: WebhookStandard
+    value: Custom JSON POST (workout_summary)
+  - type: DataFormat
+    value: JSON
+  - type: DeviceDataFormat
+    value: FIT
+  - type: PrimaryAudience
+    value: Endurance Athletes
+  - type: SecondaryAudience
+    value: Coaches And Training Platforms
+solutions:
+  - Sync Wahoo workouts into a third-party training platform.
+  - Push structured workout plans from a coaching service into a user's ELEMNT bike computer.
+  - Push GPS routes from a route-planning service into a user's ELEMNT bike computer for turn-by-turn navigation.
+  - Maintain cycling power zones synced to FTP test results.
+  - Stream workout_summary webhook events into an analytics, coaching, or social-fitness platform.
+  - Upload raw FIT files captured by non-Wahoo devices into a user's Wahoo workout history.
+useCases:
+  - Coaching platforms (TrainingPeaks, intervals.icu-style, custom).
+  - Social fitness platforms ingesting completed rides/runs.
+  - Route-planning services pushing courses to ELEMNT computers.
+  - Indoor-training applications synchronizing power zones and FTP.
+  - Health platforms aggregating workouts across vendors.
+integrations:
+  - aid: garmin
+    name: Garmin (FIT-file format interoperability)
+  - aid: strava
+    name: Strava (workout sync via third-party bridges)
+  - aid: trainingpeaks
+    name: TrainingPeaks (plan and workout interoperability)
+  - aid: zwift
+    name: Zwift (KICKR trainer control over BLE/ANT+ FE-C; outside the Cloud API)
+  - aid: apple-health
+    name: Apple Health (via iOS app)
+features:
+  - OAuth 2.0 with PKCE for public apps.
+  - Sandbox-to-production app approval workflow.
+  - Webhooks with exponential-backoff retry (30m / 4h / 24h / 72h).
+  - Pagination via page and per_page query parameters.
+  - Asynchronous FIT-file ingestion with polling token.
+  - Per-user active-token cap (10 unrevoked tokens per user as of 2026-01-01).
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

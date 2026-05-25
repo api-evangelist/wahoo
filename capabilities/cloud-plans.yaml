@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Wahoo Cloud API — Plans
+  description: >-
+    Workout plan capability for the Wahoo Cloud API. Manage structured
+    JSON workout plans, including listing plans linked to a workout.
+  tags:
+    - Wahoo
+    - Plans
+    - Workouts
+    - Fitness
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      WAHOO_ACCESS_TOKEN: WAHOO_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: cloud-plans
+      baseUri: https://api.wahooligan.com
+      description: Wahoo Cloud Plans surface.
+      resources:
+        - name: v1-plans
+          path: /v1/plans
+          operations:
+            - name: listPlans
+              method: GET
+              description: List plans.
+            - name: createPlan
+              method: POST
+              description: Create a plan.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+        - name: v1-plans-id
+          path: /v1/plans/{id}
+          operations:
+            - name: getPlan
+              method: GET
+              description: Get a plan by id.
+              inputParameters: [{ name: id, in: path, type: integer, required: true }]
+            - name: updatePlan
+              method: PUT
+              description: Update a plan.
+              inputParameters:
+                - { name: id, in: path, type: integer, required: true }
+                - { name: body, in: body, type: object, required: true }
+            - name: deletePlan
+              method: DELETE
+              description: Delete a plan.
+              inputParameters: [{ name: id, in: path, type: integer, required: true }]
+        - name: v1-workouts-plans
+          path: /v1/workouts/{workout_id}/plans
+          operations:
+            - name: listPlansForWorkout
+              method: GET
+              description: List plans associated with a workout.
+              inputParameters: [{ name: workout_id, in: path, type: integer, required: true }]
+      authentication:
+        type: bearer
+        value: '{{env.WAHOO_ACCESS_TOKEN}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: cloud-plans-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Wahoo Cloud Plans.
+      tools:
+        - name: wahoo-list-plans
+          description: List Wahoo workout plans.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: cloud-plans.listPlans
+        - name: wahoo-create-plan
+          description: Create a Wahoo workout plan.
+          hints: { readOnly: false, destructive: false, idempotent: false }
+          call: cloud-plans.createPlan
+          with: { body: tools.body }
+        - name: wahoo-get-plan
+          description: Get a Wahoo workout plan.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: cloud-plans.getPlan
+          with: { id: tools.id }
+        - name: wahoo-update-plan
+          description: Update a Wahoo workout plan.
+          hints: { readOnly: false, destructive: false, idempotent: true }
+          call: cloud-plans.updatePlan
+          with: { id: tools.id, body: tools.body }
+        - name: wahoo-delete-plan
+          description: Delete a Wahoo workout plan.
+          hints: { readOnly: false, destructive: true, idempotent: true }
+          call: cloud-plans.deletePlan
+          with: { id: tools.id }
+        - name: wahoo-list-plans-for-workout
+          description: List plans linked to a workout.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: cloud-plans.listPlansForWorkout
+          with: { workout_id: tools.workout_id }

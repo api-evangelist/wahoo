@@ -1,0 +1,77 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Wahoo Fitness
+providerId: wahoo
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: true
+tags:
+  - Fitness
+  - Cycling
+  - Partner API
+description: >-
+  Wahoo Cloud API access is governed by the Wahoo API Agreement and an
+  application-approval workflow rather than a published per-call price.
+  Apps must be registered in the developer portal and approved by Wahoo
+  before being moved from Sandbox to Production. Charging end users for
+  access to the Wahoo Platform is contractually prohibited.
+sources:
+  - https://developers.wahooligan.com/cloud
+  - https://www.wahoofitness.com/wahoo-api-agreement
+plans:
+  - id: wahoo-sandbox
+    name: Sandbox
+    type: free
+    description: Free developer-tier access used while building and certifying an integration.
+    entries:
+      - label: 5-minute request budget
+        name: rate_5m
+        type: included
+        metric: requests
+        limit: 25
+        timeFrame: 5m
+      - label: Hourly request budget
+        name: rate_hour
+        type: included
+        metric: requests
+        limit: 100
+        timeFrame: 1h
+      - label: Daily request budget
+        name: rate_day
+        type: included
+        metric: requests
+        limit: 250
+        timeFrame: 1d
+  - id: wahoo-production
+    name: Production (Approved Partner)
+    type: free
+    description: >-
+      Granted once a registered app has been reviewed and approved by Wahoo.
+      No published per-call price; usage is governed by the API Agreement.
+    entries:
+      - label: 5-minute request budget
+        name: rate_5m
+        type: included
+        metric: requests
+        limit: 200
+        timeFrame: 5m
+      - label: Hourly request budget
+        name: rate_hour
+        type: included
+        metric: requests
+        limit: 1000
+        timeFrame: 1h
+      - label: Daily request budget
+        name: rate_day
+        type: included
+        metric: requests
+        limit: 5000
+        timeFrame: 1d
+commercialNotes:
+  - Developers may not charge end users for access to Wahoo data or platform functionality.
+  - Wahoo data may not be sold, licensed, or leased to third parties or data brokers.
+  - Developers must delete user data within 48 hours of a deletion request.
+contact:
+  approvalEmail: wahooapi@wahoofitness.com
+  developerPortal: https://developers.wahooligan.com

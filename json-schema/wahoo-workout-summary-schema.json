@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wahoo/main/json-schema/wahoo-workout-summary-schema.json",
+  "title": "Wahoo Workout Summary",
+  "description": "Aggregate metrics for a completed Wahoo workout.",
+  "type": "object",
+  "properties": {
+    "id":                    { "type": "integer", "format": "int64" },
+    "ascent_accum":          { "type": "string" },
+    "calories_accum":        { "type": "string" },
+    "distance_accum":        { "type": "string" },
+    "duration_active_accum": { "type": "string" },
+    "duration_paused_accum": { "type": "string" },
+    "duration_total_accum":  { "type": "string" },
+    "cadence_avg":           { "type": "string" },
+    "heart_rate_avg":        { "type": "string" },
+    "power_bike_avg":        { "type": "string" },
+    "speed_avg":             { "type": "string" },
+    "work_accum":            { "type": "string" },
+    "file": {
+      "type": "object",
+      "properties": {
+        "url": { "type": "string", "format": "uri" }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Wahoo Cloud API — Routes
+  description: >-
+    GPS route capability for the Wahoo Cloud API. Manage FIT-backed route
+    files used by ELEMNT bike computers and KICKR indoor courses.
+  tags:
+    - Wahoo
+    - Routes
+    - GPS
+    - Cycling
+    - FIT
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      WAHOO_ACCESS_TOKEN: WAHOO_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: cloud-routes
+      baseUri: https://api.wahooligan.com
+      description: Wahoo Cloud Routes surface.
+      resources:
+        - name: v1-routes
+          path: /v1/routes
+          operations:
+            - name: listRoutes
+              method: GET
+              description: List routes.
+            - name: createRoute
+              method: POST
+              description: Create a route (multipart with FIT file).
+              inputParameters: [{ name: body, in: body, type: object, required: true }]
+        - name: v1-routes-id
+          path: /v1/routes/{id}
+          operations:
+            - name: getRoute
+              method: GET
+              description: Get a route by id.
+              inputParameters: [{ name: id, in: path, type: integer, required: true }]
+            - name: updateRoute
+              method: PUT
+              description: Update a route.
+              inputParameters:
+                - { name: id, in: path, type: integer, required: true }
+                - { name: body, in: body, type: object, required: true }
+            - name: deleteRoute
+              method: DELETE
+              description: Delete a route.
+              inputParameters: [{ name: id, in: path, type: integer, required: true }]
+      authentication:
+        type: bearer
+        value: '{{env.WAHOO_ACCESS_TOKEN}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: cloud-routes-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Wahoo Cloud Routes.
+      tools:
+        - name: wahoo-list-routes
+          description: List Wahoo GPS routes.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: cloud-routes.listRoutes
+        - name: wahoo-create-route
+          description: Create a Wahoo GPS route.
+          hints: { readOnly: false, destructive: false, idempotent: false }
+          call: cloud-routes.createRoute
+          with: { body: tools.body }
+        - name: wahoo-get-route
+          description: Get a Wahoo GPS route.
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: cloud-routes.getRoute
+          with: { id: tools.id }
+        - name: wahoo-update-route
+          description: Update a Wahoo GPS route.
+          hints: { readOnly: false, destructive: false, idempotent: true }
+          call: cloud-routes.updateRoute
+          with: { id: tools.id, body: tools.body }
+        - name: wahoo-delete-route
+          description: Delete a Wahoo GPS route.
+          hints: { readOnly: false, destructive: true, idempotent: true }
+          call: cloud-routes.deleteRoute
+          with: { id: tools.id }

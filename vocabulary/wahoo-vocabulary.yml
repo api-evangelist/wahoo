@@ -1,0 +1,83 @@
+specification: API Evangelist Vocabulary
+specificationVersion: '0.1'
+provider: Wahoo Fitness
+providerId: wahoo
+created: '2026-05-25'
+modified: '2026-05-25'
+description: >-
+  Domain vocabulary for the Wahoo Cloud API and Wahoo's hardware/software
+  ecosystem (ELEMNT bike computers, KICKR smart trainers, TRACKR sensors,
+  TICKR heart-rate monitors, SPEEDPLAY pedals, KICKR RUN treadmill, and the
+  Wahoo X / SYSTM training platform).
+domains:
+  - Fitness
+  - Cycling
+  - Endurance Training
+  - Hardware
+  - Wearables
+concepts:
+  - term: Workout
+    definition: A scheduled or completed training session recorded by a Wahoo device or partner application.
+  - term: Workout Summary
+    definition: Aggregate metrics (distance, duration, calories, average heart rate, average power, work, ascent) for a completed workout.
+  - term: Workout File Upload
+    definition: An asynchronously processed FIT-file ingestion; clients poll a token to learn when the resulting workout is available.
+  - term: Plan
+    definition: A structured workout description (JSON) that prescribes intervals, targets, and durations.
+  - term: Route
+    definition: A FIT-encoded course, used by ELEMNT bike computers for turn-by-turn navigation and by KICKR trainers for indoor course replay.
+  - term: Power Zone
+    definition: A cycling training zone derived from Functional Threshold Power (FTP) or Critical Power, used to target intensity.
+  - term: FTP
+    definition: Functional Threshold Power — the highest average power a rider can sustain for one hour.
+  - term: Critical Power
+    definition: Power that, by definition, can be sustained for a long but finite duration before fatigue.
+  - term: FIT File
+    definition: The Garmin-originated binary file format used industry-wide for activity, course, and plan data.
+  - term: ELEMNT
+    definition: Wahoo's GPS bike-computer family (ELEMNT ACE, ROAM, BOLT).
+  - term: KICKR
+    definition: Wahoo's smart-trainer family (KICKR BIKE, KICKR MOVE, KICKR CORE, KICKR ROLLR, KICKR RUN).
+  - term: TICKR
+    definition: Wahoo's chest-strap and arm-band heart-rate monitor family.
+  - term: TRACKR
+    definition: Wahoo's sensor family — TRACKR RADAR (rear-facing radar), TRACKR SPEED, TRACKR HEART RATE.
+  - term: SPEEDPLAY
+    definition: Wahoo's road clipless and power-meter pedal family.
+  - term: Wahoo X / SYSTM
+    definition: Wahoo's subscription indoor-training application; coaches, plans, and structured workouts.
+scopes:
+  - email
+  - user_read
+  - user_write
+  - workouts_read
+  - workouts_write
+  - offline_data
+  - plans_read
+  - plans_write
+  - power_zones_read
+  - power_zones_write
+  - routes_read
+  - routes_write
+hardware:
+  bike_computers:
+    - ELEMNT ACE
+    - ELEMNT ROAM 3
+    - ELEMNT BOLT 3
+  trainers:
+    - KICKR BIKE PRO
+    - KICKR BIKE SHIFT
+    - KICKR MOVE
+    - KICKR CORE 2
+    - KICKR ROLLR
+  treadmills:
+    - KICKR RUN
+  sensors:
+    - TRACKR RADAR
+    - TRACKR SPEED
+    - RPM cadence
+    - TICKR FIT
+    - TRACKR HEART RATE
+  pedals:
+    - SPEEDPLAY (road)
+    - SPEEDPLAY (power)

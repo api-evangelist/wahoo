@@ -1,0 +1,24 @@
+{
+  "event": "workout_summary",
+  "user": {
+    "id": 13374242
+  },
+  "webhook_token": "wh_8c2d0c0fa4f941df9b3b2c2f0e9e7e7a",
+  "workout_summary": {
+    "id": 9981234,
+    "workout_id": 552233,
+    "ascent_accum": "187.4",
+    "calories_accum": "642.0",
+    "distance_accum": "32147.8",
+    "duration_active_accum": "3540",
+    "duration_total_accum": "3612",
+    "cadence_avg": "84",
+    "heart_rate_avg": "148",
+    "power_bike_avg": "211",
+    "speed_avg": "8.94",
+    "work_accum": "744120",
+    "file": {
+      "url": "https://wahoo-cloud-bucket.s3.amazonaws.com/uploads/552233.fit"
+    }
+  }
+}

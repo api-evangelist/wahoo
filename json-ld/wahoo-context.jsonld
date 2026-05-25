@@ -1,0 +1,103 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "wahoo": "https://api.wahooligan.com/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "geo": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+
+    "User": {
+      "@id": "wahoo:User",
+      "@context": {
+        "id":          { "@id": "wahoo:User/id",        "@type": "xsd:long" },
+        "email":       { "@id": "schema:email",         "@type": "xsd:string" },
+        "first":       { "@id": "schema:givenName",     "@type": "xsd:string" },
+        "last":        { "@id": "schema:familyName",    "@type": "xsd:string" },
+        "birth":       { "@id": "schema:birthDate",     "@type": "xsd:date" },
+        "gender":      { "@id": "schema:gender",        "@type": "xsd:integer" },
+        "height":      { "@id": "schema:height",        "@type": "xsd:string" },
+        "weight":      { "@id": "schema:weight",        "@type": "xsd:string" },
+        "created_at":  { "@id": "schema:dateCreated",   "@type": "xsd:dateTime" },
+        "updated_at":  { "@id": "schema:dateModified",  "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Workout": {
+      "@id": "wahoo:Workout",
+      "@context": {
+        "id":                { "@id": "wahoo:Workout/id",                "@type": "xsd:long" },
+        "user_id":           { "@id": "wahoo:Workout/userId",            "@type": "xsd:long" },
+        "starts":            { "@id": "schema:startTime",                "@type": "xsd:dateTime" },
+        "minutes":           { "@id": "wahoo:Workout/minutes",           "@type": "xsd:integer" },
+        "name":              { "@id": "schema:name",                     "@type": "xsd:string" },
+        "plan_id":           { "@id": "wahoo:Workout/planId",            "@type": "xsd:long" },
+        "workout_token":     { "@id": "wahoo:Workout/workoutToken",      "@type": "xsd:string" },
+        "workout_type_id":   { "@id": "wahoo:Workout/workoutTypeId",     "@type": "xsd:integer" },
+        "workout_summary":   { "@id": "wahoo:Workout/workoutSummary",    "@type": "wahoo:WorkoutSummary" }
+      }
+    },
+
+    "WorkoutSummary": {
+      "@id": "wahoo:WorkoutSummary",
+      "@context": {
+        "id":                       { "@id": "wahoo:WorkoutSummary/id",                       "@type": "xsd:long" },
+        "ascent_accum":             { "@id": "wahoo:WorkoutSummary/ascentAccum",              "@type": "xsd:string" },
+        "calories_accum":           { "@id": "wahoo:WorkoutSummary/caloriesAccum",            "@type": "xsd:string" },
+        "distance_accum":           { "@id": "wahoo:WorkoutSummary/distanceAccum",            "@type": "xsd:string" },
+        "duration_active_accum":    { "@id": "wahoo:WorkoutSummary/durationActiveAccum",      "@type": "xsd:string" },
+        "duration_paused_accum":    { "@id": "wahoo:WorkoutSummary/durationPausedAccum",      "@type": "xsd:string" },
+        "duration_total_accum":     { "@id": "wahoo:WorkoutSummary/durationTotalAccum",       "@type": "xsd:string" },
+        "cadence_avg":              { "@id": "wahoo:WorkoutSummary/cadenceAvg",               "@type": "xsd:string" },
+        "heart_rate_avg":           { "@id": "wahoo:WorkoutSummary/heartRateAvg",             "@type": "xsd:string" },
+        "power_bike_avg":           { "@id": "wahoo:WorkoutSummary/powerBikeAvg",             "@type": "xsd:string" },
+        "speed_avg":                { "@id": "wahoo:WorkoutSummary/speedAvg",                 "@type": "xsd:string" },
+        "work_accum":               { "@id": "wahoo:WorkoutSummary/workAccum",                "@type": "xsd:string" }
+      }
+    },
+
+    "Plan": {
+      "@id": "wahoo:Plan",
+      "@context": {
+        "id":                       { "@id": "wahoo:Plan/id",                       "@type": "xsd:long" },
+        "name":                     { "@id": "schema:name",                         "@type": "xsd:string" },
+        "description":              { "@id": "schema:description",                  "@type": "xsd:string" },
+        "external_id":              { "@id": "wahoo:Plan/externalId",               "@type": "xsd:string" },
+        "workout_type_family_id":   { "@id": "wahoo:Plan/workoutTypeFamilyId",      "@type": "xsd:integer" },
+        "provider_updated_at":      { "@id": "wahoo:Plan/providerUpdatedAt",        "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Route": {
+      "@id": "wahoo:Route",
+      "@context": {
+        "id":             { "@id": "wahoo:Route/id",          "@type": "xsd:long" },
+        "name":           { "@id": "schema:name",             "@type": "xsd:string" },
+        "description":    { "@id": "schema:description",      "@type": "xsd:string" },
+        "starting_lat":   { "@id": "geo:lat",                 "@type": "xsd:float" },
+        "starting_lng":   { "@id": "geo:long",                "@type": "xsd:float" },
+        "ending_lat":     { "@id": "wahoo:Route/endingLat",   "@type": "xsd:float" },
+        "ending_lng":     { "@id": "wahoo:Route/endingLng",   "@type": "xsd:float" },
+        "distance":       { "@id": "schema:distance",         "@type": "xsd:float" },
+        "ascent":         { "@id": "wahoo:Route/ascent",      "@type": "xsd:float" },
+        "descent":        { "@id": "wahoo:Route/descent",     "@type": "xsd:float" }
+      }
+    },
+
+    "PowerZone": {
+      "@id": "wahoo:PowerZone",
+      "@context": {
+        "id":              { "@id": "wahoo:PowerZone/id",            "@type": "xsd:long" },
+        "ftp":             { "@id": "wahoo:PowerZone/ftp",           "@type": "xsd:integer" },
+        "critical_power":  { "@id": "wahoo:PowerZone/criticalPower", "@type": "xsd:integer" },
+        "zone_1":          { "@id": "wahoo:PowerZone/zone1",         "@type": "xsd:integer" },
+        "zone_2":          { "@id": "wahoo:PowerZone/zone2",         "@type": "xsd:integer" },
+        "zone_3":          { "@id": "wahoo:PowerZone/zone3",         "@type": "xsd:integer" },
+        "zone_4":          { "@id": "wahoo:PowerZone/zone4",         "@type": "xsd:integer" },
+        "zone_5":          { "@id": "wahoo:PowerZone/zone5",         "@type": "xsd:integer" },
+        "zone_6":          { "@id": "wahoo:PowerZone/zone6",         "@type": "xsd:integer" },
+        "zone_7":          { "@id": "wahoo:PowerZone/zone7",         "@type": "xsd:integer" }
+      }
+    }
+  }
+}
