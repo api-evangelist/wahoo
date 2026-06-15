@@ -1,20 +1,15 @@
 aid: wahoo
 name: Wahoo Fitness
 description: >-
-  Wahoo Fitness is an Atlanta, Georgia endurance-training hardware and software
-  company building cycling and run-training products: the ELEMNT family of GPS
-  bike computers (ACE, ROAM, BOLT), the KICKR family of smart trainers and bikes
-  (KICKR BIKE PRO/SHIFT, KICKR MOVE, KICKR CORE, KICKR ROLLR, KICKR RUN
-  treadmill), TICKR and TRACKR heart-rate monitors and sensors (including
-  TRACKR RADAR rear-facing radar), and SPEEDPLAY road and power pedals. Wahoo
-  publishes a public Cloud API at api.wahooligan.com that allows third-party
-  applications to authenticate Wahoo users via OAuth 2.0 and read/write user
-  profiles, workouts, workout summaries, FIT-file uploads, structured workout
-  plans, GPS routes, and cycling power zones. The Cloud API delivers
-  workout_summary webhook events when the offline_data scope is granted.
-  Companion AppleHealth / native iOS and Android APIs round out the developer
-  surface; access is gated by the Wahoo API Agreement and an app-approval
-  workflow that promotes integrations from sandbox to production.
+  Wahoo Fitness is an Atlanta, Georgia endurance-training hardware and software company building cycling and
+  run-training products: the ELEMNT family of GPS bike computers (ACE, ROAM, BOLT), the KICKR family of smart trainers
+  and bikes (KICKR BIKE PRO/SHIFT, KICKR MOVE, KICKR CORE, KICKR ROLLR, KICKR RUN treadmill), TICKR and TRACKR
+  heart-rate monitors and sensors (including TRACKR RADAR rear-facing radar), and SPEEDPLAY road and power pedals. Wahoo
+  publishes a public Cloud API at api.wahooligan.com that allows third-party applications to authenticate Wahoo users
+  via OAuth 2.0 and read/write user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans,
+  GPS routes, and cycling power zones. The Cloud API delivers workout_summary webhook events when the offline_data scope
+  is granted. Companion AppleHealth / native iOS and Android APIs round out the developer surface; access is gated by
+  the Wahoo API Agreement and an app-approval workflow that promotes integrations from sandbox to production.
 type: Index
 position: Provider
 access: 3rd-Party
@@ -49,12 +44,10 @@ apis:
     humanURL: https://cloud-api.wahooligan.com/
     baseURL: https://api.wahooligan.com
     description: >-
-      OAuth 2.0 REST API that connects Wahoo users to third-party mobile and
-      web applications. Manages user profiles, workouts, workout summaries,
-      FIT-file uploads, structured workout plans, GPS routes, and cycling
-      power zones. Delivers workout_summary webhook events when offline_data
-      scope is granted. Sandbox apps are promoted to production after Wahoo
-      review.
+      OAuth 2.0 REST API that connects Wahoo users to third-party mobile and web applications. Manages user profiles,
+      workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones.
+      Delivers workout_summary webhook events when offline_data scope is granted. Sandbox apps are promoted to
+      production after Wahoo review.
     properties:
       - type: Documentation
         url: https://cloud-api.wahooligan.com/
@@ -74,20 +67,6 @@ apis:
         url: json-schema/wahoo-workout-summary-schema.json
       - type: JSONLD
         url: json-ld/wahoo-context.jsonld
-      - type: NaftikoCapability
-        url: capabilities/cloud-users.yaml
-      - type: NaftikoCapability
-        url: capabilities/cloud-workouts.yaml
-      - type: NaftikoCapability
-        url: capabilities/cloud-file-uploads.yaml
-      - type: NaftikoCapability
-        url: capabilities/cloud-plans.yaml
-      - type: NaftikoCapability
-        url: capabilities/cloud-routes.yaml
-      - type: NaftikoCapability
-        url: capabilities/cloud-power-zones.yaml
-      - type: NaftikoCapability
-        url: capabilities/cloud-permissions.yaml
       - type: Plans
         url: plans/wahoo-plans-pricing.yml
       - type: RateLimits
@@ -115,10 +94,9 @@ apis:
       - SDK
     humanURL: https://developers.wahooligan.com/
     description: >-
-      Native iOS SDK for interacting with Wahoo devices directly over BLE/ANT+
-      and integrating with the Wahoo Cloud. Documented at the Wahoo developer
-      portal under the iOS product. Access is gated by the Wahoo API
-      Agreement and an app-approval workflow.
+      Native iOS SDK for interacting with Wahoo devices directly over BLE/ANT+ and integrating with the Wahoo Cloud.
+      Documented at the Wahoo developer portal under the iOS product. Access is gated by the Wahoo API Agreement and an
+      app-approval workflow.
     properties:
       - type: Documentation
         url: https://developers.wahooligan.com/
@@ -133,10 +111,9 @@ apis:
       - SDK
     humanURL: https://developers.wahooligan.com/
     description: >-
-      Native Android SDK for interacting with Wahoo devices over BLE/ANT+
-      and integrating with the Wahoo Cloud. Documented at the Wahoo
-      developer portal under the Android product. Access is gated by the
-      Wahoo API Agreement and an app-approval workflow.
+      Native Android SDK for interacting with Wahoo devices over BLE/ANT+ and integrating with the Wahoo Cloud.
+      Documented at the Wahoo developer portal under the Android product. Access is gated by the Wahoo API Agreement and
+      an app-approval workflow.
     properties:
       - type: Documentation
         url: https://developers.wahooligan.com/
