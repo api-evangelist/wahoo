@@ -53,7 +53,7 @@ apis:
         url: https://cloud-api.wahooligan.com/
       - type: Documentation
         url: https://developers.wahooligan.com/cloud
-      - type: SignUp
+      - type: Signup
         url: https://developers.wahooligan.com/
       - type: TermsOfService
         url: https://www.wahoofitness.com/wahoo-api-agreement
@@ -73,11 +73,11 @@ apis:
         url: rate-limits/wahoo-rate-limits.yml
       - type: Vocabulary
         url: vocabulary/wahoo-vocabulary.yml
-      - type: Example
+      - type: Examples
         url: examples/wahoo-workout-summary-event-example.json
-      - type: Example
+      - type: Examples
         url: examples/wahoo-power-zones-example.json
-      - type: Webhook
+      - type: Webhooks
         url: https://cloud-api.wahooligan.com/#webhooks
       - type: Authentication
         url: https://cloud-api.wahooligan.com/#authentication
@@ -100,7 +100,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developers.wahooligan.com/
-      - type: SignUp
+      - type: Signup
         url: https://developers.wahooligan.com/
   - aid: wahoo:wahoo-android-api
     name: Wahoo Android API
@@ -117,7 +117,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developers.wahooligan.com/
-      - type: SignUp
+      - type: Signup
         url: https://developers.wahooligan.com/
 common:
   - type: Website
