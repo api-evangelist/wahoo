@@ -1,0 +1,21 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/wahoo-cloud-api-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.wahooligan.com/oauth/authorize
+    tokenUrl: https://api.wahooligan.com/oauth/token
+    scopes: 12
+  description: OAuth 2.0 Authorization Code (with PKCE option for public apps). Access tokens
+    are bearer tokens with a 2-hour TTL; refresh tokens are single-use. Starting 2026-01-01,
+    apps are limited to 10 unrevoked access tokens per user.
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
