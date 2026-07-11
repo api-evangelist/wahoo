@@ -120,6 +120,10 @@ apis:
       - type: Signup
         url: https://developers.wahooligan.com/
 common:
+  - type: Authentication
+    url: authentication/wahoo-authentication.yml
+  - type: OAuthScopes
+    url: scopes/wahoo-scopes.yml
   - type: Website
     url: https://www.wahoofitness.com/
   - type: DeveloperPortal

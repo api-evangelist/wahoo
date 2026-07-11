@@ -1,0 +1,86 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/wahoo-cloud-api-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/wahoo-cloud-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.wahooligan.com/oauth/authorize
+    tokenUrl: https://api.wahooligan.com/oauth/token
+  description: OAuth 2.0 Authorization Code (with PKCE option for public apps). Access tokens
+    are bearer tokens with a 2-hour TTL; refresh tokens are single-use. Starting 2026-01-01,
+    apps are limited to 10 unrevoked access tokens per user.
+scopes:
+- scope: email
+  description: Access the user's email address
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: offline_data
+  description: Receive webhook events while the app is closed
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: plans_read
+  description: Read workout plans
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: plans_write
+  description: Manage workout plans
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: power_zones_read
+  description: Read cycling power zones
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: power_zones_write
+  description: Manage cycling power zones
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: routes_read
+  description: Read GPS routes
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: routes_write
+  description: Manage GPS routes
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: user_read
+  description: Read user profile
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: user_write
+  description: Update user profile
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: workouts_read
+  description: Read workouts and summaries
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
+- scope: workouts_write
+  description: Create/update/delete workouts and uploads
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/wahoo-cloud-api-openapi.yml
