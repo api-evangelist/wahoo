@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: Wahoo Cloud Permissions Users API
+  description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
+  version: v1
+  contact:
+    name: Wahoo Developer Support
+    email: wahooapi@wahoofitness.com
+    url: https://developers.wahooligan.com
+  termsOfService: https://www.wahoofitness.com/wahoo-api-agreement
+servers:
+- url: https://api.wahooligan.com
+  description: Production
+security:
+- OAuth2: []
+tags:
+- name: Users
+  description: Authenticated user profile.
+paths:
+  /v1/user:
+    get:
+      tags:
+      - Users
+      summary: Get Authenticated User
+      operationId: getUser
+      security:
+      - OAuth2:
+        - user_read
+      responses:
+        '200':
+          description: The authenticated user record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags:
+      - Users
+      summary: Update Authenticated User
+      operationId: updateUser
+      security:
+      - OAuth2:
+        - user_write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: Updated user record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        email:
+          type: string
+          format: email
+        first:
+          type: string
+        last:
+          type: string
+        birth:
+          type: string
+          format: date
+        gender:
+          type: integer
+          description: 0 = male, 1 = female, 2 = other
+        height:
+          type: string
+          description: Meters as string.
+        weight:
+          type: string
+          description: Kilograms as string.
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    UserUpdate:
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        birth:
+          type: string
+          format: date
+        gender:
+          type: integer
+        height:
+          type: string
+        weight:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 Authorization Code (with PKCE option for public apps). Access tokens are bearer tokens with a 2-hour TTL; refresh tokens are single-use. Starting 2026-01-01, apps are limited to 10 unrevoked access tokens per user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.wahooligan.com/oauth/authorize
+          tokenUrl: https://api.wahooligan.com/oauth/token
+          refreshUrl: https://api.wahooligan.com/oauth/token
+          scopes:
+            email: Access the user's email address
+            user_read: Read user profile
+            user_write: Update user profile
+            workouts_read: Read workouts and summaries
+            workouts_write: Create/update/delete workouts and uploads
+            offline_data: Receive webhook events while the app is closed
+            plans_read: Read workout plans
+            plans_write: Manage workout plans
+            power_zones_read: Read cycling power zones
+            power_zones_write: Manage cycling power zones
+            routes_read: Read GPS routes
+            routes_write: Manage GPS routes
+externalDocs:
+  description: Wahoo Cloud API Reference
+  url: https://cloud-api.wahooligan.com/

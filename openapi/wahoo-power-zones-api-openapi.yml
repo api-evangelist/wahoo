@@ -1,0 +1,202 @@
+openapi: 3.0.3
+info:
+  title: Wahoo Cloud Permissions Power Zones API
+  description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
+  version: v1
+  contact:
+    name: Wahoo Developer Support
+    email: wahooapi@wahoofitness.com
+    url: https://developers.wahooligan.com
+  termsOfService: https://www.wahoofitness.com/wahoo-api-agreement
+servers:
+- url: https://api.wahooligan.com
+  description: Production
+security:
+- OAuth2: []
+tags:
+- name: Power Zones
+  description: Cycling power training zones.
+paths:
+  /v1/power_zones:
+    get:
+      tags:
+      - Power Zones
+      summary: List Power Zones
+      operationId: listPowerZones
+      security:
+      - OAuth2:
+        - power_zones_read
+      responses:
+        '200':
+          description: Power zones list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PowerZone'
+    post:
+      tags:
+      - Power Zones
+      summary: Create Power Zones
+      operationId: createPowerZones
+      security:
+      - OAuth2:
+        - power_zones_write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PowerZoneCreate'
+      responses:
+        '201':
+          description: Power zones created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PowerZone'
+  /v1/power_zones/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+      - Power Zones
+      summary: Get Power Zones
+      operationId: getPowerZones
+      security:
+      - OAuth2:
+        - power_zones_read
+      responses:
+        '200':
+          description: Power zones record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PowerZone'
+    put:
+      tags:
+      - Power Zones
+      summary: Update Power Zones
+      operationId: updatePowerZones
+      security:
+      - OAuth2:
+        - power_zones_write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PowerZoneCreate'
+      responses:
+        '200':
+          description: Updated power zones.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PowerZone'
+    delete:
+      tags:
+      - Power Zones
+      summary: Delete Power Zones
+      operationId: deletePowerZones
+      security:
+      - OAuth2:
+        - power_zones_write
+      responses:
+        '204':
+          description: Power zones deleted.
+components:
+  schemas:
+    PowerZone:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        zone_1:
+          type: integer
+        zone_2:
+          type: integer
+        zone_3:
+          type: integer
+        zone_4:
+          type: integer
+        zone_5:
+          type: integer
+        zone_6:
+          type: integer
+        zone_7:
+          type: integer
+        ftp:
+          type: integer
+          description: Functional Threshold Power in watts.
+        critical_power:
+          type: integer
+        workout_type_family_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    PowerZoneCreate:
+      type: object
+      required:
+      - ftp
+      - workout_type_family_id
+      properties:
+        ftp:
+          type: integer
+        critical_power:
+          type: integer
+        workout_type_family_id:
+          type: integer
+        zone_1:
+          type: integer
+        zone_2:
+          type: integer
+        zone_3:
+          type: integer
+        zone_4:
+          type: integer
+        zone_5:
+          type: integer
+        zone_6:
+          type: integer
+        zone_7:
+          type: integer
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 Authorization Code (with PKCE option for public apps). Access tokens are bearer tokens with a 2-hour TTL; refresh tokens are single-use. Starting 2026-01-01, apps are limited to 10 unrevoked access tokens per user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.wahooligan.com/oauth/authorize
+          tokenUrl: https://api.wahooligan.com/oauth/token
+          refreshUrl: https://api.wahooligan.com/oauth/token
+          scopes:
+            email: Access the user's email address
+            user_read: Read user profile
+            user_write: Update user profile
+            workouts_read: Read workouts and summaries
+            workouts_write: Create/update/delete workouts and uploads
+            offline_data: Receive webhook events while the app is closed
+            plans_read: Read workout plans
+            plans_write: Manage workout plans
+            power_zones_read: Read cycling power zones
+            power_zones_write: Manage cycling power zones
+            routes_read: Read GPS routes
+            routes_write: Manage GPS routes
+externalDocs:
+  description: Wahoo Cloud API Reference
+  url: https://cloud-api.wahooligan.com/

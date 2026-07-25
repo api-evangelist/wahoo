@@ -1,0 +1,264 @@
+openapi: 3.0.3
+info:
+  title: Wahoo Cloud Permissions Workouts API
+  description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
+  version: v1
+  contact:
+    name: Wahoo Developer Support
+    email: wahooapi@wahoofitness.com
+    url: https://developers.wahooligan.com
+  termsOfService: https://www.wahoofitness.com/wahoo-api-agreement
+servers:
+- url: https://api.wahooligan.com
+  description: Production
+security:
+- OAuth2: []
+tags:
+- name: Workouts
+  description: Workout records (CRUD + listing).
+paths:
+  /v1/workouts:
+    get:
+      tags:
+      - Workouts
+      summary: List Workouts
+      operationId: listWorkouts
+      security:
+      - OAuth2:
+        - workouts_read
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Paginated workout list.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkoutList'
+    post:
+      tags:
+      - Workouts
+      summary: Create Workout
+      operationId: createWorkout
+      security:
+      - OAuth2:
+        - workouts_write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkoutCreate'
+      responses:
+        '201':
+          description: Workout created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workout'
+  /v1/workouts/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+      - Workouts
+      summary: Get Workout
+      operationId: getWorkout
+      security:
+      - OAuth2:
+        - workouts_read
+      responses:
+        '200':
+          description: Workout record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workout'
+    put:
+      tags:
+      - Workouts
+      summary: Update Workout
+      operationId: updateWorkout
+      security:
+      - OAuth2:
+        - workouts_write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkoutCreate'
+      responses:
+        '200':
+          description: Updated workout record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workout'
+    delete:
+      tags:
+      - Workouts
+      summary: Delete Workout
+      operationId: deleteWorkout
+      security:
+      - OAuth2:
+        - workouts_write
+      responses:
+        '204':
+          description: Workout deleted.
+components:
+  schemas:
+    WorkoutSummary:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        ascent_accum:
+          type: string
+        calories_accum:
+          type: string
+        distance_accum:
+          type: string
+        duration_active_accum:
+          type: string
+        duration_paused_accum:
+          type: string
+        duration_total_accum:
+          type: string
+        cadence_avg:
+          type: string
+        heart_rate_avg:
+          type: string
+        power_bike_avg:
+          type: string
+        speed_avg:
+          type: string
+        work_accum:
+          type: string
+        file:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+    WorkoutCreate:
+      type: object
+      required:
+      - starts
+      - minutes
+      - name
+      - workout_type_id
+      properties:
+        starts:
+          type: string
+          format: date-time
+        minutes:
+          type: integer
+        name:
+          type: string
+        plan_id:
+          type: integer
+          format: int64
+        workout_token:
+          type: string
+        workout_type_id:
+          type: integer
+    WorkoutList:
+      type: object
+      properties:
+        workouts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workout'
+        total:
+          type: integer
+        page:
+          type: integer
+        per_page:
+          type: integer
+        order:
+          type: string
+        sort:
+          type: string
+    Workout:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        user_id:
+          type: integer
+          format: int64
+        starts:
+          type: string
+          format: date-time
+        minutes:
+          type: integer
+        name:
+          type: string
+        plan_id:
+          type: integer
+          format: int64
+          nullable: true
+        workout_token:
+          type: string
+        workout_type_id:
+          type: integer
+        workout_summary:
+          $ref: '#/components/schemas/WorkoutSummary'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 Authorization Code (with PKCE option for public apps). Access tokens are bearer tokens with a 2-hour TTL; refresh tokens are single-use. Starting 2026-01-01, apps are limited to 10 unrevoked access tokens per user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.wahooligan.com/oauth/authorize
+          tokenUrl: https://api.wahooligan.com/oauth/token
+          refreshUrl: https://api.wahooligan.com/oauth/token
+          scopes:
+            email: Access the user's email address
+            user_read: Read user profile
+            user_write: Update user profile
+            workouts_read: Read workouts and summaries
+            workouts_write: Create/update/delete workouts and uploads
+            offline_data: Receive webhook events while the app is closed
+            plans_read: Read workout plans
+            plans_write: Manage workout plans
+            power_zones_read: Read cycling power zones
+            power_zones_write: Manage cycling power zones
+            routes_read: Read GPS routes
+            routes_write: Manage GPS routes
+externalDocs:
+  description: Wahoo Cloud API Reference
+  url: https://cloud-api.wahooligan.com/

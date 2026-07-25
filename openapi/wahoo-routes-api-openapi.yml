@@ -1,0 +1,247 @@
+openapi: 3.0.3
+info:
+  title: Wahoo Cloud Permissions Routes API
+  description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
+  version: v1
+  contact:
+    name: Wahoo Developer Support
+    email: wahooapi@wahoofitness.com
+    url: https://developers.wahooligan.com
+  termsOfService: https://www.wahoofitness.com/wahoo-api-agreement
+servers:
+- url: https://api.wahooligan.com
+  description: Production
+security:
+- OAuth2: []
+tags:
+- name: Routes
+  description: Navigation / course data backed by FIT files.
+paths:
+  /v1/routes:
+    get:
+      tags:
+      - Routes
+      summary: List Routes
+      operationId: listRoutes
+      security:
+      - OAuth2:
+        - routes_read
+      parameters:
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/PerPage'
+      responses:
+        '200':
+          description: Paginated route list.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Route'
+    post:
+      tags:
+      - Routes
+      summary: Create Route
+      operationId: createRoute
+      security:
+      - OAuth2:
+        - routes_write
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RouteCreate'
+      responses:
+        '201':
+          description: Route created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+  /v1/routes/{id}:
+    parameters:
+    - $ref: '#/components/parameters/Id'
+    get:
+      tags:
+      - Routes
+      summary: Get Route
+      operationId: getRoute
+      security:
+      - OAuth2:
+        - routes_read
+      responses:
+        '200':
+          description: Route record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+    put:
+      tags:
+      - Routes
+      summary: Update Route
+      operationId: updateRoute
+      security:
+      - OAuth2:
+        - routes_write
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RouteCreate'
+      responses:
+        '200':
+          description: Updated route record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+    delete:
+      tags:
+      - Routes
+      summary: Delete Route
+      operationId: deleteRoute
+      security:
+      - OAuth2:
+        - routes_write
+      responses:
+        '204':
+          description: Route deleted.
+components:
+  parameters:
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+  schemas:
+    Route:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        external_id:
+          type: string
+        starting_lat:
+          type: number
+          format: float
+        starting_lng:
+          type: number
+          format: float
+        ending_lat:
+          type: number
+          format: float
+        ending_lng:
+          type: number
+          format: float
+        distance:
+          type: number
+          format: float
+        ascent:
+          type: number
+          format: float
+        descent:
+          type: number
+          format: float
+        workout_type_family_id:
+          type: integer
+        file:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    RouteCreate:
+      type: object
+      required:
+      - name
+      - file
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        external_id:
+          type: string
+        starting_lat:
+          type: number
+          format: float
+        starting_lng:
+          type: number
+          format: float
+        ending_lat:
+          type: number
+          format: float
+        ending_lng:
+          type: number
+          format: float
+        distance:
+          type: number
+          format: float
+        ascent:
+          type: number
+          format: float
+        descent:
+          type: number
+          format: float
+        workout_type_family_id:
+          type: integer
+        file:
+          type: string
+          format: binary
+          description: FIT-format route file.
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: OAuth 2.0 Authorization Code (with PKCE option for public apps). Access tokens are bearer tokens with a 2-hour TTL; refresh tokens are single-use. Starting 2026-01-01, apps are limited to 10 unrevoked access tokens per user.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.wahooligan.com/oauth/authorize
+          tokenUrl: https://api.wahooligan.com/oauth/token
+          refreshUrl: https://api.wahooligan.com/oauth/token
+          scopes:
+            email: Access the user's email address
+            user_read: Read user profile
+            user_write: Update user profile
+            workouts_read: Read workouts and summaries
+            workouts_write: Create/update/delete workouts and uploads
+            offline_data: Receive webhook events while the app is closed
+            plans_read: Read workout plans
+            plans_write: Manage workout plans
+            power_zones_read: Read cycling power zones
+            power_zones_write: Manage cycling power zones
+            routes_read: Read GPS routes
+            routes_write: Manage GPS routes
+externalDocs:
+  description: Wahoo Cloud API Reference
+  url: https://cloud-api.wahooligan.com/
