@@ -11,9 +11,22 @@ description: >-
   is granted. Companion AppleHealth / native iOS and Android APIs round out the developer surface; access is gated by
   the Wahoo API Agreement and an app-approval workflow that promotes integrations from sandbox to production.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Provider
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/wahoo.png
 tags:
   - Fitness
   - Cycling
@@ -34,91 +47,360 @@ created: '2026-05-25'
 modified: '2026-05-25'
 specificationVersion: '0.20'
 apis:
-  - aid: wahoo:wahoo-cloud-api
-    name: Wahoo Cloud API
-    tags:
-      - Fitness
-      - Cycling
-      - Workouts
-      - OAuth
-    humanURL: https://cloud-api.wahooligan.com/
-    baseURL: https://api.wahooligan.com
-    description: >-
-      OAuth 2.0 REST API that connects Wahoo users to third-party mobile and web applications. Manages user profiles,
-      workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones.
-      Delivers workout_summary webhook events when offline_data scope is granted. Sandbox apps are promoted to
-      production after Wahoo review.
-    properties:
-      - type: Documentation
-        url: https://cloud-api.wahooligan.com/
-      - type: Documentation
-        url: https://developers.wahooligan.com/cloud
-      - type: Signup
-        url: https://developers.wahooligan.com/
-      - type: TermsOfService
-        url: https://www.wahoofitness.com/wahoo-api-agreement
-      - type: OpenAPI
-        url: openapi/wahoo-cloud-api-openapi.yml
-      - type: AsyncAPI
-        url: asyncapi/wahoo-webhooks-asyncapi.yml
-      - type: JSONSchema
-        url: json-schema/wahoo-workout-schema.json
-      - type: JSONSchema
-        url: json-schema/wahoo-workout-summary-schema.json
-      - type: JSONLD
-        url: json-ld/wahoo-context.jsonld
-      - type: Plans
-        url: plans/wahoo-plans-pricing.yml
-      - type: RateLimits
-        url: rate-limits/wahoo-rate-limits.yml
-      - type: Vocabulary
-        url: vocabulary/wahoo-vocabulary.yml
-      - type: Examples
-        url: examples/wahoo-workout-summary-event-example.json
-      - type: Examples
-        url: examples/wahoo-power-zones-example.json
-      - type: Webhooks
-        url: https://cloud-api.wahooligan.com/#webhooks
-      - type: Authentication
-        url: https://cloud-api.wahooligan.com/#authentication
-    contact:
-      - FN: Wahoo Developer Support
-        email: wahooapi@wahoofitness.com
-        url: https://developers.wahooligan.com
-  - aid: wahoo:wahoo-ios-api
-    name: Wahoo iOS API
-    tags:
-      - Fitness
-      - Cycling
-      - iOS
-      - SDK
-    humanURL: https://developers.wahooligan.com/
-    description: >-
-      Native iOS SDK for interacting with Wahoo devices directly over BLE/ANT+ and integrating with the Wahoo Cloud.
-      Documented at the Wahoo developer portal under the iOS product. Access is gated by the Wahoo API Agreement and an
-      app-approval workflow.
-    properties:
-      - type: Documentation
-        url: https://developers.wahooligan.com/
-      - type: Signup
-        url: https://developers.wahooligan.com/
-  - aid: wahoo:wahoo-android-api
-    name: Wahoo Android API
-    tags:
-      - Fitness
-      - Cycling
-      - Android
-      - SDK
-    humanURL: https://developers.wahooligan.com/
-    description: >-
-      Native Android SDK for interacting with Wahoo devices over BLE/ANT+ and integrating with the Wahoo Cloud.
-      Documented at the Wahoo developer portal under the Android product. Access is gated by the Wahoo API Agreement and
-      an app-approval workflow.
-    properties:
-      - type: Documentation
-        url: https://developers.wahooligan.com/
-      - type: Signup
-        url: https://developers.wahooligan.com/
+- aid: wahoo:wahoo-ios-api
+  name: Wahoo iOS API
+  tags:
+  - Fitness
+  - Cycling
+  - iOS
+  - SDK
+  humanURL: https://developers.wahooligan.com/
+  description: >-
+    Native iOS SDK for interacting with Wahoo devices directly over BLE/ANT+ and integrating with the
+    Wahoo Cloud. Documented at the Wahoo developer portal under the iOS product. Access is gated by the
+    Wahoo API Agreement and an app-approval workflow.
+  properties:
+  - type: Documentation
+    url: https://developers.wahooligan.com/
+  - type: Signup
+    url: https://developers.wahooligan.com/
+- aid: wahoo:wahoo-android-api
+  name: Wahoo Android API
+  tags:
+  - Fitness
+  - Cycling
+  - Android
+  - SDK
+  humanURL: https://developers.wahooligan.com/
+  description: >-
+    Native Android SDK for interacting with Wahoo devices over BLE/ANT+ and integrating with the Wahoo
+    Cloud. Documented at the Wahoo developer portal under the Android product. Access is gated by the
+    Wahoo API Agreement and an app-approval workflow.
+  properties:
+  - type: Documentation
+    url: https://developers.wahooligan.com/
+  - type: Signup
+    url: https://developers.wahooligan.com/
+- aid: wahoo:wahoo-permissions-api
+  name: Wahoo Fitness Permissions API
+  description: Revoke OAuth app access.
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Permissions
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-permissions-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
+- aid: wahoo:wahoo-plans-api
+  name: Wahoo Fitness Plans API
+  description: Structured workout plans.
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Plans
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-plans-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
+- aid: wahoo:wahoo-power-zones-api
+  name: Wahoo Fitness Power Zones API
+  description: Cycling power training zones.
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Power Zones
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-power-zones-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
+- aid: wahoo:wahoo-routes-api
+  name: Wahoo Fitness Routes API
+  description: Navigation / course data backed by FIT files.
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-routes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
+- aid: wahoo:wahoo-users-api
+  name: Wahoo Fitness Users API
+  description: Authenticated user profile.
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-users-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
+- aid: wahoo:wahoo-workout-file-uploads-api
+  name: Wahoo Fitness Workout File Uploads API
+  description: Asynchronous FIT-file ingestion.
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Workout File Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-workout-file-uploads-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
+- aid: wahoo:wahoo-workout-summaries-api
+  name: Wahoo Fitness Workout Summaries API
+  description: Aggregate results for a completed workout.
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Workout Summaries
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-workout-summaries-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
+- aid: wahoo:wahoo-workouts-api
+  name: Wahoo Fitness Workouts API
+  description: Workout records (CRUD + listing).
+  humanURL: https://cloud-api.wahooligan.com/
+  baseURL: https://api.wahooligan.com
+  tags:
+  - Workouts
+  properties:
+  - type: OpenAPI
+    url: openapi/wahoo-workouts-api-openapi.yml
+  - type: Documentation
+    url: https://cloud-api.wahooligan.com/
+  - type: Documentation
+    url: https://developers.wahooligan.com/cloud
+  - type: Signup
+    url: https://developers.wahooligan.com/
+  - type: TermsOfService
+    url: https://www.wahoofitness.com/wahoo-api-agreement
+  - type: AsyncAPI
+    url: asyncapi/wahoo-webhooks-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-schema.json
+  - type: JSONSchema
+    url: json-schema/wahoo-workout-summary-schema.json
+  - type: JSONLD
+    url: json-ld/wahoo-context.jsonld
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
+  - type: Vocabulary
+    url: vocabulary/wahoo-vocabulary.yml
+  - type: Examples
+    url: examples/wahoo-workout-summary-event-example.json
+  - type: Examples
+    url: examples/wahoo-power-zones-example.json
+  - type: Webhooks
+    url: https://cloud-api.wahooligan.com/#webhooks
+  - type: Authentication
+    url: https://cloud-api.wahooligan.com/#authentication
 common:
   - type: AgenticAccess
     url: agentic-access/wahoo-agentic-access.yml
