@@ -1,0 +1,28 @@
+{
+  "provider": "wahoo",
+  "sources": [
+    "wahoo-permissions-api-openapi.yml",
+    "wahoo-plans-api-openapi.yml",
+    "wahoo-power-zones-api-openapi.yml",
+    "wahoo-routes-api-openapi.yml",
+    "wahoo-users-api-openapi.yml",
+    "wahoo-workout-file-uploads-api-openapi.yml",
+    "wahoo-workout-summaries-api-openapi.yml",
+    "wahoo-workouts-api-openapi.yml"
+  ],
+  "outputs": [
+    "wahoo-permissions-api-openapi.yml",
+    "wahoo-plans-api-openapi.yml",
+    "wahoo-power-zones-api-openapi.yml",
+    "wahoo-routes-api-openapi.yml",
+    "wahoo-users-api-openapi.yml",
+    "wahoo-workout-file-uploads-api-openapi.yml",
+    "wahoo-workout-summaries-api-openapi.yml",
+    "wahoo-workouts-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
