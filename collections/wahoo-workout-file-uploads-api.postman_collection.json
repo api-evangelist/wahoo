@@ -1,0 +1,304 @@
+{
+  "item": [
+    {
+      "id": "671c8b86-2a2e-4c7e-8d9d-0f7f86606772",
+      "name": "Workout File Uploads",
+      "description": {
+        "content": "Asynchronous FIT-file ingestion.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6e790add-a59b-48ee-867d-636f305ad3a4",
+          "name": "Upload Workout FIT File",
+          "request": {
+            "name": "Upload Workout FIT File",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "workout_file_uploads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) FIT file to ingest."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e812ce3b-4790-4655-83df-9d1f6f2318d9",
+              "name": "Upload accepted; returns a token for polling.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "workout_file_uploads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) FIT file to ingest.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"state\": \"completed\",\n  \"workout_id\": 9839,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3d4f983-37b5-49d6-b95e-3f9b451a70f5",
+          "name": "Get Workout File Upload Status",
+          "request": {
+            "name": "Get Workout File Upload Status",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "workout_file_uploads",
+                ":token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "026bdd74-b8f9-4af1-8b83-8a806a3bb33d",
+              "name": "Upload status.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "workout_file_uploads",
+                    ":token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"state\": \"completed\",\n  \"workout_id\": 9839,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wahooligan.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.wahooligan.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52ce004a-44a7-4ac5-bfcd-a6c441120f11",
+    "name": "Wahoo Cloud Permissions Workout File Uploads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.\n\nContact Support:\n Name: Wahoo Developer Support\n Email: wahooapi@wahoofitness.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "item": [
+    {
+      "id": "705b13ec-72a0-44eb-b0d2-5bbc6a831251",
+      "name": "Users",
+      "description": {
+        "content": "Authenticated user profile.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c72574f-51d7-4c73-9374-33dd2f57633a",
+          "name": "Get Authenticated User",
+          "request": {
+            "name": "Get Authenticated User",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "61f4d245-22c4-499b-863c-8599f6c88490",
+              "name": "The authenticated user record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7557,\n  \"email\": \"oJuTM@WliSREvFRylkLEkABdHesQiVSfyP.ocb\",\n  \"first\": \"string\",\n  \"last\": \"string\",\n  \"birth\": \"1994-08-16\",\n  \"gender\": 2320,\n  \"height\": \"string\",\n  \"weight\": \"string\",\n  \"created_at\": \"1981-11-19T14:56:35.882Z\",\n  \"updated_at\": \"2020-12-14T17:25:52.569Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c46cb5b9-234c-4e98-a411-9acf684a3b99",
+          "name": "Update Authenticated User",
+          "request": {
+            "name": "Update Authenticated User",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first\": \"<string>\",\n  \"last\": \"<string>\",\n  \"birth\": \"<date>\",\n  \"gender\": \"<integer>\",\n  \"height\": \"<string>\",\n  \"weight\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9632034-b64f-4314-98ae-dc39fea71469",
+              "name": "Updated user record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first\": \"<string>\",\n  \"last\": \"<string>\",\n  \"birth\": \"<date>\",\n  \"gender\": \"<integer>\",\n  \"height\": \"<string>\",\n  \"weight\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7557,\n  \"email\": \"oJuTM@WliSREvFRylkLEkABdHesQiVSfyP.ocb\",\n  \"first\": \"string\",\n  \"last\": \"string\",\n  \"birth\": \"1994-08-16\",\n  \"gender\": 2320,\n  \"height\": \"string\",\n  \"weight\": \"string\",\n  \"created_at\": \"1981-11-19T14:56:35.882Z\",\n  \"updated_at\": \"2020-12-14T17:25:52.569Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wahooligan.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.wahooligan.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3134dc77-571e-4628-95e0-6a8c8c6fe9d9",
+    "name": "Wahoo Cloud Permissions Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.\n\nContact Support:\n Name: Wahoo Developer Support\n Email: wahooapi@wahoofitness.com",
+      "type": "text/plain"
+    }
+  }
+}

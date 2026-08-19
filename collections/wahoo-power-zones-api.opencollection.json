@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wahoo Cloud Permissions Power Zones API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://api.wahooligan.com/oauth/authorize",
+      "accessTokenUrl": "https://api.wahooligan.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Power Zones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Power Zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wahooligan.com/v1/power_zones",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.wahooligan.com/oauth/authorize",
+              "accessTokenUrl": "https://api.wahooligan.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "List Power Zones"
+        },
+        {
+          "info": {
+            "name": "Create Power Zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wahooligan.com/v1/power_zones",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.wahooligan.com/oauth/authorize",
+              "accessTokenUrl": "https://api.wahooligan.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create Power Zones"
+        },
+        {
+          "info": {
+            "name": "Get Power Zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wahooligan.com/v1/power_zones/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.wahooligan.com/oauth/authorize",
+              "accessTokenUrl": "https://api.wahooligan.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Get Power Zones"
+        },
+        {
+          "info": {
+            "name": "Update Power Zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.wahooligan.com/v1/power_zones/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.wahooligan.com/oauth/authorize",
+              "accessTokenUrl": "https://api.wahooligan.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update Power Zones"
+        },
+        {
+          "info": {
+            "name": "Delete Power Zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wahooligan.com/v1/power_zones/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.wahooligan.com/oauth/authorize",
+              "accessTokenUrl": "https://api.wahooligan.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete Power Zones"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

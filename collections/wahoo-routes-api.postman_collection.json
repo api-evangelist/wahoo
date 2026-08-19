@@ -1,0 +1,1011 @@
+{
+  "item": [
+    {
+      "id": "e47394c8-0baa-4a13-aeae-23ec9db5eab1",
+      "name": "Routes",
+      "description": {
+        "content": "Navigation / course data backed by FIT files.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da2216a8-a755-4d8e-91e5-8f685f355722",
+          "name": "List Routes",
+          "request": {
+            "name": "List Routes",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "30"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fae5546f-b858-4978-b336-58b41744d58b",
+              "name": "Paginated route list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5717,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"starting_lat\": 9491.85224327148,\n    \"starting_lng\": 888.4962382960049,\n    \"ending_lat\": 8564.605870595517,\n    \"ending_lng\": 6815.658306483522,\n    \"distance\": 4100.851631569162,\n    \"ascent\": 8850.274385796198,\n    \"descent\": 4460.036050134057,\n    \"workout_type_family_id\": 724,\n    \"file\": {\n      \"url\": \"http://xckzcNKYYLBRJEuuEGahXogNTjW.fjikPB2L74VSsRS5T-rnsW1RlqmlRRO-i+h6kYbOI575nuOkQUtJesESvkiMzrd+\"\n    },\n    \"created_at\": \"1979-03-07T18:11:12.223Z\",\n    \"updated_at\": \"1975-05-02T12:33:00.972Z\"\n  },\n  {\n    \"id\": 4468,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"starting_lat\": 7105.267332919249,\n    \"starting_lng\": 560.5654328868981,\n    \"ending_lat\": 3776.382622613098,\n    \"ending_lng\": 285.7083135205452,\n    \"distance\": 6283.437359177011,\n    \"ascent\": 1184.6782586346949,\n    \"descent\": 2005.5961912025543,\n    \"workout_type_family_id\": 5875,\n    \"file\": {\n      \"url\": \"https://mzglRuloiRI.zuoyS5AgZ3qD2UbYz6NFgRu+BUKK1ojtBs\"\n    },\n    \"created_at\": \"1993-08-11T18:05:11.722Z\",\n    \"updated_at\": \"1958-06-13T18:13:47.914Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15a05395-1982-4be2-bc1b-c9e48f49630f",
+          "name": "Create Route",
+          "request": {
+            "name": "Create Route",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) FIT-format route file."
+                },
+                {
+                  "key": "description",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "external_id",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "starting_lat",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "starting_lng",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "ending_lat",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "ending_lng",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "distance",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "ascent",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "descent",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "workout_type_family_id",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2a35fc4a-b189-4699-a259-0bae76804085",
+              "name": "Route created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) FIT-format route file.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "external_id",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "starting_lat",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "starting_lng",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ending_lat",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ending_lng",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "distance",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ascent",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "descent",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "workout_type_family_id",
+                      "value": "<integer>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 922,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"starting_lat\": 9372.954306808779,\n  \"starting_lng\": 696.7132332740933,\n  \"ending_lat\": 449.7631321860185,\n  \"ending_lng\": 4579.586772668811,\n  \"distance\": 9371.34823650881,\n  \"ascent\": 5063.491855718554,\n  \"descent\": 6613.907264352715,\n  \"workout_type_family_id\": 7246,\n  \"file\": {\n    \"url\": \"http://LcsRitWHsIbZAvEGwSBtlHACWqPdczyu.zbyro8N0w3YZW9Gh3CMB,2mCM9J9iKRSK8GmJA,SvXX9zztl70hPBCvfDvvyCO4aPK9P\"\n  },\n  \"created_at\": \"2014-03-31T07:25:51.546Z\",\n  \"updated_at\": \"1953-09-08T07:54:20.622Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "326b037b-f196-423d-acfe-164e86ebb21f",
+          "name": "Get Route",
+          "request": {
+            "name": "Get Route",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "routes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4d18dd93-ec2d-42a1-91b9-0d604c685d06",
+              "name": "Route record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 922,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"starting_lat\": 9372.954306808779,\n  \"starting_lng\": 696.7132332740933,\n  \"ending_lat\": 449.7631321860185,\n  \"ending_lng\": 4579.586772668811,\n  \"distance\": 9371.34823650881,\n  \"ascent\": 5063.491855718554,\n  \"descent\": 6613.907264352715,\n  \"workout_type_family_id\": 7246,\n  \"file\": {\n    \"url\": \"http://LcsRitWHsIbZAvEGwSBtlHACWqPdczyu.zbyro8N0w3YZW9Gh3CMB,2mCM9J9iKRSK8GmJA,SvXX9zztl70hPBCvfDvvyCO4aPK9P\"\n  },\n  \"created_at\": \"2014-03-31T07:25:51.546Z\",\n  \"updated_at\": \"1953-09-08T07:54:20.622Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ac73181-701a-4290-917f-6c2be24d3673",
+          "name": "Update Route",
+          "request": {
+            "name": "Update Route",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "routes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "file",
+                  "value": "<binary>",
+                  "type": "text",
+                  "description": "(Required) FIT-format route file."
+                },
+                {
+                  "key": "description",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "external_id",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "starting_lat",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "starting_lng",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "ending_lat",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "ending_lng",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "distance",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "ascent",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "descent",
+                  "value": "<float>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "workout_type_family_id",
+                  "value": "<integer>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "72dd2efa-9ef8-4e7e-8fe8-961736e16fb6",
+              "name": "Updated route record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) FIT-format route file.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "external_id",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "starting_lat",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "starting_lng",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ending_lat",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ending_lng",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "distance",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ascent",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "descent",
+                      "value": "<float>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "workout_type_family_id",
+                      "value": "<integer>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 922,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"starting_lat\": 9372.954306808779,\n  \"starting_lng\": 696.7132332740933,\n  \"ending_lat\": 449.7631321860185,\n  \"ending_lng\": 4579.586772668811,\n  \"distance\": 9371.34823650881,\n  \"ascent\": 5063.491855718554,\n  \"descent\": 6613.907264352715,\n  \"workout_type_family_id\": 7246,\n  \"file\": {\n    \"url\": \"http://LcsRitWHsIbZAvEGwSBtlHACWqPdczyu.zbyro8N0w3YZW9Gh3CMB,2mCM9J9iKRSK8GmJA,SvXX9zztl70hPBCvfDvvyCO4aPK9P\"\n  },\n  \"created_at\": \"2014-03-31T07:25:51.546Z\",\n  \"updated_at\": \"1953-09-08T07:54:20.622Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27e16942-8de9-43c1-84cb-c3bd34a8960e",
+          "name": "Delete Route",
+          "request": {
+            "name": "Delete Route",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "routes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec4138c3-00ca-4e40-8f89-4941115dcb86",
+              "name": "Route deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "routes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wahooligan.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.wahooligan.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cf7e2d8f-4191-40cf-afdf-1bd97c9b20df",
+    "name": "Wahoo Cloud Permissions Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.\n\nContact Support:\n Name: Wahoo Developer Support\n Email: wahooapi@wahoofitness.com",
+      "type": "text/plain"
+    }
+  }
+}

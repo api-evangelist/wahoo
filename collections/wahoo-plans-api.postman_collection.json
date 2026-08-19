@@ -1,0 +1,789 @@
+{
+  "item": [
+    {
+      "id": "e0d333bf-7014-449c-b07a-e5a9ad97e1a5",
+      "name": "Plans",
+      "description": {
+        "content": "Structured workout plans.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4dddd603-aa42-446c-9bd6-32027205c625",
+          "name": "List Plans",
+          "request": {
+            "name": "List Plans",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "30"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d9979412-1242-4a45-bf24-3c76137cbffd",
+              "name": "Paginated plan list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6317,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"file\": {\n      \"url\": \"https://By.hbZcat1lfnHrWP.miuZGIhCq4A\"\n    },\n    \"provider_updated_at\": \"2008-09-07T05:05:21.040Z\",\n    \"workout_type_family_id\": 1262,\n    \"created_at\": \"1997-11-25T20:51:16.357Z\",\n    \"updated_at\": \"2018-02-25T01:02:10.551Z\"\n  },\n  {\n    \"id\": 5064,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"file\": {\n      \"url\": \"https://vnLvUlBNccarNmfQLYLiSeeRornHB.zsvryL1HwlGBRjM+QeStNoVecSPpanAAlgui1\"\n    },\n    \"provider_updated_at\": \"1961-07-26T07:33:35.554Z\",\n    \"workout_type_family_id\": 9970,\n    \"created_at\": \"1962-02-06T00:42:38.613Z\",\n    \"updated_at\": \"1987-02-20T06:33:23.573Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37f1bfdb-730b-48cf-9699-7e4a7edc5688",
+          "name": "Create Plan",
+          "request": {
+            "name": "Create Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"file\": \"<binary>\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"provider_updated_at\": \"<dateTime>\",\n  \"workout_type_family_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e2afa067-357e-4018-8a6d-446cabaeb6c8",
+              "name": "Plan created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"file\": \"<binary>\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"provider_updated_at\": \"<dateTime>\",\n  \"workout_type_family_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3983,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"file\": {\n    \"url\": \"https://BkPyRseaHSOgSO.oiY7.xtgfHH-wnjRhhza\"\n  },\n  \"provider_updated_at\": \"2016-08-18T08:30:23.799Z\",\n  \"workout_type_family_id\": 2980,\n  \"created_at\": \"1990-04-13T10:07:50.140Z\",\n  \"updated_at\": \"1992-10-07T21:18:39.043Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75cc327b-986c-4ee7-bda5-e4327f6bbcd0",
+          "name": "Get Plan",
+          "request": {
+            "name": "Get Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "57d6c392-247e-4178-8a31-0ab91feed25a",
+              "name": "Plan record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3983,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"file\": {\n    \"url\": \"https://BkPyRseaHSOgSO.oiY7.xtgfHH-wnjRhhza\"\n  },\n  \"provider_updated_at\": \"2016-08-18T08:30:23.799Z\",\n  \"workout_type_family_id\": 2980,\n  \"created_at\": \"1990-04-13T10:07:50.140Z\",\n  \"updated_at\": \"1992-10-07T21:18:39.043Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "257e9456-add1-41c1-bbbd-abd89e5a703b",
+          "name": "Update Plan",
+          "request": {
+            "name": "Update Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"file\": \"<binary>\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"provider_updated_at\": \"<dateTime>\",\n  \"workout_type_family_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8fcb316f-cc22-47b9-9450-4af3e89a2bfb",
+              "name": "Updated plan record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"file\": \"<binary>\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"provider_updated_at\": \"<dateTime>\",\n  \"workout_type_family_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3983,\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"file\": {\n    \"url\": \"https://BkPyRseaHSOgSO.oiY7.xtgfHH-wnjRhhza\"\n  },\n  \"provider_updated_at\": \"2016-08-18T08:30:23.799Z\",\n  \"workout_type_family_id\": 2980,\n  \"created_at\": \"1990-04-13T10:07:50.140Z\",\n  \"updated_at\": \"1992-10-07T21:18:39.043Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7d45789-e7c1-495a-8516-d65253cd8839",
+          "name": "Delete Plan",
+          "request": {
+            "name": "Delete Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "plans",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d38cb565-e4c7-4d67-9dae-2a005fb42650",
+              "name": "Plan deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "plans",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13630b43-443c-458d-99f6-83f50c51970d",
+          "name": "List Plans For Workout",
+          "request": {
+            "name": "List Plans For Workout",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "workouts",
+                ":workout_id",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "workout_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a0b2a93f-8d54-466e-b0cd-06e5ee0e935c",
+              "name": "Plans associated with the workout.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "workouts",
+                    ":workout_id",
+                    "plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "workout_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6317,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"file\": {\n      \"url\": \"https://By.hbZcat1lfnHrWP.miuZGIhCq4A\"\n    },\n    \"provider_updated_at\": \"2008-09-07T05:05:21.040Z\",\n    \"workout_type_family_id\": 1262,\n    \"created_at\": \"1997-11-25T20:51:16.357Z\",\n    \"updated_at\": \"2018-02-25T01:02:10.551Z\"\n  },\n  {\n    \"id\": 5064,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"file\": {\n      \"url\": \"https://vnLvUlBNccarNmfQLYLiSeeRornHB.zsvryL1HwlGBRjM+QeStNoVecSPpanAAlgui1\"\n    },\n    \"provider_updated_at\": \"1961-07-26T07:33:35.554Z\",\n    \"workout_type_family_id\": 9970,\n    \"created_at\": \"1962-02-06T00:42:38.613Z\",\n    \"updated_at\": \"1987-02-20T06:33:23.573Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wahooligan.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.wahooligan.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c9b6dcfb-6a17-4235-b73f-dd852dbe8d7c",
+    "name": "Wahoo Cloud Permissions Plans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.\n\nContact Support:\n Name: Wahoo Developer Support\n Email: wahooapi@wahoofitness.com",
+      "type": "text/plain"
+    }
+  }
+}

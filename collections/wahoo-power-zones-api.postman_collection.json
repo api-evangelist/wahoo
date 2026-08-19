@@ -1,0 +1,648 @@
+{
+  "item": [
+    {
+      "id": "1163e194-43de-4f44-84bf-53f29f07bacf",
+      "name": "Power Zones",
+      "description": {
+        "content": "Cycling power training zones.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf87f5d8-9d73-4485-bb84-13e89f786bf3",
+          "name": "List Power Zones",
+          "request": {
+            "name": "List Power Zones",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "power_zones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b79f1ef5-8f16-4f33-a32c-7a0c42ffb1c1",
+              "name": "Power zones list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "power_zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8953,\n    \"zone_1\": 3022,\n    \"zone_2\": 8838,\n    \"zone_3\": 6169,\n    \"zone_4\": 7479,\n    \"zone_5\": 8312,\n    \"zone_6\": 7265,\n    \"zone_7\": 5438,\n    \"ftp\": 9735,\n    \"critical_power\": 59,\n    \"workout_type_family_id\": 4972,\n    \"created_at\": \"2011-10-20T06:52:23.565Z\",\n    \"updated_at\": \"2006-06-18T03:25:35.282Z\"\n  },\n  {\n    \"id\": 9005,\n    \"zone_1\": 1915,\n    \"zone_2\": 400,\n    \"zone_3\": 1007,\n    \"zone_4\": 1800,\n    \"zone_5\": 506,\n    \"zone_6\": 9316,\n    \"zone_7\": 5065,\n    \"ftp\": 6130,\n    \"critical_power\": 1260,\n    \"workout_type_family_id\": 4298,\n    \"created_at\": \"1954-08-14T17:33:32.643Z\",\n    \"updated_at\": \"1995-02-24T20:54:42.154Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46deb3d4-78ec-426c-8aa4-37af8d7774d8",
+          "name": "Create Power Zones",
+          "request": {
+            "name": "Create Power Zones",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "power_zones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ftp\": \"<integer>\",\n  \"workout_type_family_id\": \"<integer>\",\n  \"critical_power\": \"<integer>\",\n  \"zone_1\": \"<integer>\",\n  \"zone_2\": \"<integer>\",\n  \"zone_3\": \"<integer>\",\n  \"zone_4\": \"<integer>\",\n  \"zone_5\": \"<integer>\",\n  \"zone_6\": \"<integer>\",\n  \"zone_7\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3258419-c4da-4d3a-a3b9-47f3e987dc2a",
+              "name": "Power zones created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "power_zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ftp\": \"<integer>\",\n  \"workout_type_family_id\": \"<integer>\",\n  \"critical_power\": \"<integer>\",\n  \"zone_1\": \"<integer>\",\n  \"zone_2\": \"<integer>\",\n  \"zone_3\": \"<integer>\",\n  \"zone_4\": \"<integer>\",\n  \"zone_5\": \"<integer>\",\n  \"zone_6\": \"<integer>\",\n  \"zone_7\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9017,\n  \"zone_1\": 6539,\n  \"zone_2\": 8964,\n  \"zone_3\": 6316,\n  \"zone_4\": 917,\n  \"zone_5\": 3077,\n  \"zone_6\": 2528,\n  \"zone_7\": 261,\n  \"ftp\": 7716,\n  \"critical_power\": 9258,\n  \"workout_type_family_id\": 1890,\n  \"created_at\": \"2011-10-10T15:39:33.156Z\",\n  \"updated_at\": \"2019-12-05T16:55:27.967Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "395ddd59-98e3-472c-8f73-208969a7b3b4",
+          "name": "Get Power Zones",
+          "request": {
+            "name": "Get Power Zones",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "power_zones",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1be58b82-4367-4e9a-8371-06bb3d39243e",
+              "name": "Power zones record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "power_zones",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9017,\n  \"zone_1\": 6539,\n  \"zone_2\": 8964,\n  \"zone_3\": 6316,\n  \"zone_4\": 917,\n  \"zone_5\": 3077,\n  \"zone_6\": 2528,\n  \"zone_7\": 261,\n  \"ftp\": 7716,\n  \"critical_power\": 9258,\n  \"workout_type_family_id\": 1890,\n  \"created_at\": \"2011-10-10T15:39:33.156Z\",\n  \"updated_at\": \"2019-12-05T16:55:27.967Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dadcacd7-4180-4607-84c8-04e4cadb8c98",
+          "name": "Update Power Zones",
+          "request": {
+            "name": "Update Power Zones",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "power_zones",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ftp\": \"<integer>\",\n  \"workout_type_family_id\": \"<integer>\",\n  \"critical_power\": \"<integer>\",\n  \"zone_1\": \"<integer>\",\n  \"zone_2\": \"<integer>\",\n  \"zone_3\": \"<integer>\",\n  \"zone_4\": \"<integer>\",\n  \"zone_5\": \"<integer>\",\n  \"zone_6\": \"<integer>\",\n  \"zone_7\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e18ad563-fc69-4e80-8050-a305ec75e329",
+              "name": "Updated power zones.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "power_zones",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ftp\": \"<integer>\",\n  \"workout_type_family_id\": \"<integer>\",\n  \"critical_power\": \"<integer>\",\n  \"zone_1\": \"<integer>\",\n  \"zone_2\": \"<integer>\",\n  \"zone_3\": \"<integer>\",\n  \"zone_4\": \"<integer>\",\n  \"zone_5\": \"<integer>\",\n  \"zone_6\": \"<integer>\",\n  \"zone_7\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9017,\n  \"zone_1\": 6539,\n  \"zone_2\": 8964,\n  \"zone_3\": 6316,\n  \"zone_4\": 917,\n  \"zone_5\": 3077,\n  \"zone_6\": 2528,\n  \"zone_7\": 261,\n  \"ftp\": 7716,\n  \"critical_power\": 9258,\n  \"workout_type_family_id\": 1890,\n  \"created_at\": \"2011-10-10T15:39:33.156Z\",\n  \"updated_at\": \"2019-12-05T16:55:27.967Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2a609c7-08d0-4938-a509-dabd79c04bc7",
+          "name": "Delete Power Zones",
+          "request": {
+            "name": "Delete Power Zones",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "power_zones",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+                },
+                {
+                  "key": "redirect_uri",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.wahooligan.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.wahooligan.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7d49b320-8c9e-49a0-a55a-0e5d890ce518",
+              "name": "Power zones deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "power_zones",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wahooligan.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "email user_read user_write workouts_read workouts_write offline_data plans_read plans_write power_zones_read power_zones_write routes_read routes_write"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.wahooligan.com/oauth/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.wahooligan.com/oauth/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "78860039-43f6-4fdc-8697-4f072df14e69",
+    "name": "Wahoo Cloud Permissions Power Zones API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.\n\nContact Support:\n Name: Wahoo Developer Support\n Email: wahooapi@wahoofitness.com",
+      "type": "text/plain"
+    }
+  }
+}
