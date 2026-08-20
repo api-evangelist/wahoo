@@ -40,6 +40,21 @@ tags:
   - Wearables
   - Hardware
   - FIT Files
+  - Webhook
+  - Authentication
+tags_raw:
+  - Fitness
+  - Cycling
+  - Endurance Training
+  - Bike Computers
+  - Smart Trainers
+  - Indoor Cycling
+  - Heart Rate
+  - Power Meters
+  - GPS
+  - Wearables
+  - Hardware
+  - FIT Files
   - Webhooks
   - OAuth
 url: https://raw.githubusercontent.com/api-evangelist/wahoo/refs/heads/main/apis.yml
@@ -247,6 +262,8 @@ apis:
   humanURL: https://cloud-api.wahooligan.com/
   baseURL: https://api.wahooligan.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
