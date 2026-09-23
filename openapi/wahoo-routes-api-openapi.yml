@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Wahoo Cloud Permissions Routes API
+  title: Wahoo Cloud Routes API
   description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
   version: v1
   contact:
@@ -111,6 +111,13 @@ paths:
           description: Route deleted.
 components:
   parameters:
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
     PerPage:
       in: query
       name: per_page
@@ -126,14 +133,46 @@ components:
       schema:
         type: integer
         format: int64
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   schemas:
+    RouteCreate:
+      type: object
+      required:
+      - name
+      - file
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        external_id:
+          type: string
+        starting_lat:
+          type: number
+          format: float
+        starting_lng:
+          type: number
+          format: float
+        ending_lat:
+          type: number
+          format: float
+        ending_lng:
+          type: number
+          format: float
+        distance:
+          type: number
+          format: float
+        ascent:
+          type: number
+          format: float
+        descent:
+          type: number
+          format: float
+        workout_type_family_id:
+          type: integer
+        file:
+          type: string
+          format: binary
+          description: FIT-format route file.
     Route:
       type: object
       properties:
@@ -181,45 +220,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    RouteCreate:
-      type: object
-      required:
-      - name
-      - file
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        external_id:
-          type: string
-        starting_lat:
-          type: number
-          format: float
-        starting_lng:
-          type: number
-          format: float
-        ending_lat:
-          type: number
-          format: float
-        ending_lng:
-          type: number
-          format: float
-        distance:
-          type: number
-          format: float
-        ascent:
-          type: number
-          format: float
-        descent:
-          type: number
-          format: float
-        workout_type_family_id:
-          type: integer
-        file:
-          type: string
-          format: binary
-          description: FIT-format route file.
   securitySchemes:
     OAuth2:
       type: oauth2

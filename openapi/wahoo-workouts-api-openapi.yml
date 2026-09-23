@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Wahoo Cloud Permissions Workouts API
+  title: Wahoo Cloud Workouts API
   description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
   version: v1
   contact:
@@ -109,40 +109,39 @@ paths:
           description: Workout deleted.
 components:
   schemas:
-    WorkoutSummary:
+    Workout:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        ascent_accum:
+        user_id:
+          type: integer
+          format: int64
+        starts:
           type: string
-        calories_accum:
+          format: date-time
+        minutes:
+          type: integer
+        name:
           type: string
-        distance_accum:
+        plan_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        workout_token:
           type: string
-        duration_active_accum:
+        workout_type_id:
+          type: integer
+        workout_summary:
+          $ref: '#/components/schemas/WorkoutSummary'
+        created_at:
           type: string
-        duration_paused_accum:
+          format: date-time
+        updated_at:
           type: string
-        duration_total_accum:
-          type: string
-        cadence_avg:
-          type: string
-        heart_rate_avg:
-          type: string
-        power_bike_avg:
-          type: string
-        speed_avg:
-          type: string
-        work_accum:
-          type: string
-        file:
-          type: object
-          properties:
-            url:
-              type: string
-              format: uri
+          format: date-time
     WorkoutCreate:
       type: object
       required:
@@ -182,39 +181,48 @@ components:
           type: string
         sort:
           type: string
-    Workout:
+    WorkoutSummary:
       type: object
       properties:
         id:
           type: integer
           format: int64
-        user_id:
-          type: integer
-          format: int64
-        starts:
+        ascent_accum:
           type: string
-          format: date-time
-        minutes:
-          type: integer
-        name:
+        calories_accum:
           type: string
-        plan_id:
-          type: integer
-          format: int64
-          nullable: true
-        workout_token:
+        distance_accum:
           type: string
-        workout_type_id:
-          type: integer
-        workout_summary:
-          $ref: '#/components/schemas/WorkoutSummary'
-        created_at:
+        duration_active_accum:
           type: string
-          format: date-time
-        updated_at:
+        duration_paused_accum:
           type: string
-          format: date-time
+        duration_total_accum:
+          type: string
+        cadence_avg:
+          type: string
+        heart_rate_avg:
+          type: string
+        power_bike_avg:
+          type: string
+        speed_avg:
+          type: string
+        work_accum:
+          type: string
+        file:
+          type: object
+          properties:
+            url:
+              type: string
+              format: uri
   parameters:
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
     PerPage:
       in: query
       name: per_page
@@ -230,13 +238,6 @@ components:
       schema:
         type: integer
         format: int64
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Wahoo Cloud Permissions Plans API
+  title: Wahoo Cloud Plans API
   description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
   version: v1
   contact:
@@ -135,30 +135,28 @@ paths:
                 items:
                   $ref: '#/components/schemas/Plan'
 components:
-  parameters:
-    PerPage:
-      in: query
-      name: per_page
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 30
-    Id:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        format: int64
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   schemas:
+    PlanCreate:
+      type: object
+      required:
+      - name
+      - file
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        external_id:
+          type: string
+        provider_updated_at:
+          type: string
+          format: date-time
+        workout_type_family_id:
+          type: integer
+        file:
+          type: string
+          format: binary
+          description: JSON plan file.
     Plan:
       type: object
       properties:
@@ -188,27 +186,29 @@ components:
         updated_at:
           type: string
           format: date-time
-    PlanCreate:
-      type: object
-      required:
-      - name
-      - file
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        external_id:
-          type: string
-        provider_updated_at:
-          type: string
-          format: date-time
-        workout_type_family_id:
-          type: integer
-        file:
-          type: string
-          format: binary
-          description: JSON plan file.
+  parameters:
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
   securitySchemes:
     OAuth2:
       type: oauth2

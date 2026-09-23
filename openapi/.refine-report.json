@@ -1,14 +1,7 @@
 {
   "provider": "wahoo",
   "sources": [
-    "wahoo-permissions-api-openapi.yml",
-    "wahoo-plans-api-openapi.yml",
-    "wahoo-power-zones-api-openapi.yml",
-    "wahoo-routes-api-openapi.yml",
-    "wahoo-users-api-openapi.yml",
-    "wahoo-workout-file-uploads-api-openapi.yml",
-    "wahoo-workout-summaries-api-openapi.yml",
-    "wahoo-workouts-api-openapi.yml"
+    "_original/wahoo-cloud-api-openapi.yml"
   ],
   "outputs": [
     "wahoo-permissions-api-openapi.yml",
@@ -23,6 +16,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "wahoo-cloud-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "wahoo-permissions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wahoo-plans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wahoo-power-zones-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wahoo-routes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wahoo-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wahoo-workout-file-uploads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wahoo-workout-summaries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wahoo-workouts-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

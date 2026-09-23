@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Wahoo Cloud Permissions Users API
+  title: Wahoo Cloud Users API
   description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
   version: v1
   contact:
@@ -56,6 +56,22 @@ paths:
                 $ref: '#/components/schemas/User'
 components:
   schemas:
+    UserUpdate:
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        birth:
+          type: string
+          format: date
+        gender:
+          type: integer
+        height:
+          type: string
+        weight:
+          type: string
     User:
       type: object
       properties:
@@ -87,22 +103,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    UserUpdate:
-      type: object
-      properties:
-        first:
-          type: string
-        last:
-          type: string
-        birth:
-          type: string
-          format: date
-        gender:
-          type: integer
-        height:
-          type: string
-        weight:
-          type: string
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Wahoo Cloud Permissions Power Zones API
+  title: Wahoo Cloud Power Zones API
   description: The Wahoo Cloud API connects Wahoo Fitness users to mobile and web applications. OAuth 2.0 (with PKCE option) authorizes access to user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Webhooks deliver workout_summary notifications when offline_data scope is granted.
   version: v1
   contact:
@@ -108,6 +108,32 @@ paths:
           description: Power zones deleted.
 components:
   schemas:
+    PowerZoneCreate:
+      type: object
+      required:
+      - ftp
+      - workout_type_family_id
+      properties:
+        ftp:
+          type: integer
+        critical_power:
+          type: integer
+        workout_type_family_id:
+          type: integer
+        zone_1:
+          type: integer
+        zone_2:
+          type: integer
+        zone_3:
+          type: integer
+        zone_4:
+          type: integer
+        zone_5:
+          type: integer
+        zone_6:
+          type: integer
+        zone_7:
+          type: integer
     PowerZone:
       type: object
       properties:
@@ -141,32 +167,6 @@ components:
         updated_at:
           type: string
           format: date-time
-    PowerZoneCreate:
-      type: object
-      required:
-      - ftp
-      - workout_type_family_id
-      properties:
-        ftp:
-          type: integer
-        critical_power:
-          type: integer
-        workout_type_family_id:
-          type: integer
-        zone_1:
-          type: integer
-        zone_2:
-          type: integer
-        zone_3:
-          type: integer
-        zone_4:
-          type: integer
-        zone_5:
-          type: integer
-        zone_6:
-          type: integer
-        zone_7:
-          type: integer
   parameters:
     Id:
       in: path
