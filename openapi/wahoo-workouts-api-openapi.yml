@@ -109,39 +109,6 @@ paths:
           description: Workout deleted.
 components:
   schemas:
-    Workout:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        user_id:
-          type: integer
-          format: int64
-        starts:
-          type: string
-          format: date-time
-        minutes:
-          type: integer
-        name:
-          type: string
-        plan_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        workout_token:
-          type: string
-        workout_type_id:
-          type: integer
-        workout_summary:
-          $ref: '#/components/schemas/WorkoutSummary'
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
     WorkoutCreate:
       type: object
       required:
@@ -181,6 +148,39 @@ components:
           type: string
         sort:
           type: string
+    Workout:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        user_id:
+          type: integer
+          format: int64
+        starts:
+          type: string
+          format: date-time
+        minutes:
+          type: integer
+        name:
+          type: string
+        plan_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        workout_token:
+          type: string
+        workout_type_id:
+          type: integer
+        workout_summary:
+          $ref: '#/components/schemas/WorkoutSummary'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
     WorkoutSummary:
       type: object
       properties:

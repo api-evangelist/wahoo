@@ -135,28 +135,30 @@ paths:
                 items:
                   $ref: '#/components/schemas/Plan'
 components:
+  parameters:
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 30
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
   schemas:
-    PlanCreate:
-      type: object
-      required:
-      - name
-      - file
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        external_id:
-          type: string
-        provider_updated_at:
-          type: string
-          format: date-time
-        workout_type_family_id:
-          type: integer
-        file:
-          type: string
-          format: binary
-          description: JSON plan file.
     Plan:
       type: object
       properties:
@@ -186,29 +188,27 @@ components:
         updated_at:
           type: string
           format: date-time
-  parameters:
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
-    PerPage:
-      in: query
-      name: per_page
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 30
-    Id:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        format: int64
+    PlanCreate:
+      type: object
+      required:
+      - name
+      - file
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        external_id:
+          type: string
+        provider_updated_at:
+          type: string
+          format: date-time
+        workout_type_family_id:
+          type: integer
+        file:
+          type: string
+          format: binary
+          description: JSON plan file.
   securitySchemes:
     OAuth2:
       type: oauth2

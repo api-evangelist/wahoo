@@ -134,45 +134,6 @@ components:
         type: integer
         format: int64
   schemas:
-    RouteCreate:
-      type: object
-      required:
-      - name
-      - file
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        external_id:
-          type: string
-        starting_lat:
-          type: number
-          format: float
-        starting_lng:
-          type: number
-          format: float
-        ending_lat:
-          type: number
-          format: float
-        ending_lng:
-          type: number
-          format: float
-        distance:
-          type: number
-          format: float
-        ascent:
-          type: number
-          format: float
-        descent:
-          type: number
-          format: float
-        workout_type_family_id:
-          type: integer
-        file:
-          type: string
-          format: binary
-          description: FIT-format route file.
     Route:
       type: object
       properties:
@@ -220,6 +181,45 @@ components:
         updated_at:
           type: string
           format: date-time
+    RouteCreate:
+      type: object
+      required:
+      - name
+      - file
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        external_id:
+          type: string
+        starting_lat:
+          type: number
+          format: float
+        starting_lng:
+          type: number
+          format: float
+        ending_lat:
+          type: number
+          format: float
+        ending_lng:
+          type: number
+          format: float
+        distance:
+          type: number
+          format: float
+        ascent:
+          type: number
+          format: float
+        descent:
+          type: number
+          format: float
+        workout_type_family_id:
+          type: integer
+        file:
+          type: string
+          format: binary
+          description: FIT-format route file.
   securitySchemes:
     OAuth2:
       type: oauth2
