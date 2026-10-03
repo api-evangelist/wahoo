@@ -56,22 +56,6 @@ paths:
                 $ref: '#/components/schemas/User'
 components:
   schemas:
-    UserUpdate:
-      type: object
-      properties:
-        first:
-          type: string
-        last:
-          type: string
-        birth:
-          type: string
-          format: date
-        gender:
-          type: integer
-        height:
-          type: string
-        weight:
-          type: string
     User:
       type: object
       properties:
@@ -103,6 +87,22 @@ components:
         updated_at:
           type: string
           format: date-time
+    UserUpdate:
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        birth:
+          type: string
+          format: date
+        gender:
+          type: integer
+        height:
+          type: string
+        weight:
+          type: string
   securitySchemes:
     OAuth2:
       type: oauth2
