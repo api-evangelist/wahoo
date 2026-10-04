@@ -107,6 +107,14 @@ paths:
         '204':
           description: Power zones deleted.
 components:
+  parameters:
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
   schemas:
     PowerZoneCreate:
       type: object
@@ -167,14 +175,6 @@ components:
         updated_at:
           type: string
           format: date-time
-  parameters:
-    Id:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        format: int64
   securitySchemes:
     OAuth2:
       type: oauth2

@@ -111,13 +111,6 @@ paths:
           description: Route deleted.
 components:
   parameters:
-    Id:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        format: int64
     PerPage:
       in: query
       name: per_page
@@ -126,6 +119,13 @@ components:
         minimum: 1
         maximum: 100
         default: 30
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
     Page:
       in: query
       name: page

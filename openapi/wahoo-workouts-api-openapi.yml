@@ -109,13 +109,6 @@ paths:
           description: Workout deleted.
 components:
   parameters:
-    Id:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-        format: int64
     PerPage:
       in: query
       name: per_page
@@ -124,6 +117,13 @@ components:
         minimum: 1
         maximum: 100
         default: 30
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+        format: int64
     Page:
       in: query
       name: page
@@ -132,28 +132,6 @@ components:
         minimum: 1
         default: 1
   schemas:
-    WorkoutCreate:
-      type: object
-      required:
-      - starts
-      - minutes
-      - name
-      - workout_type_id
-      properties:
-        starts:
-          type: string
-          format: date-time
-        minutes:
-          type: integer
-        name:
-          type: string
-        plan_id:
-          type: integer
-          format: int64
-        workout_token:
-          type: string
-        workout_type_id:
-          type: integer
     WorkoutSummary:
       type: object
       properties:
@@ -188,6 +166,28 @@ components:
             url:
               type: string
               format: uri
+    WorkoutCreate:
+      type: object
+      required:
+      - starts
+      - minutes
+      - name
+      - workout_type_id
+      properties:
+        starts:
+          type: string
+          format: date-time
+        minutes:
+          type: integer
+        name:
+          type: string
+        plan_id:
+          type: integer
+          format: int64
+        workout_token:
+          type: string
+        workout_type_id:
+          type: integer
     WorkoutList:
       type: object
       properties:
