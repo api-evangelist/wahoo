@@ -431,6 +431,10 @@ apis:
   - type: Authentication
     url: https://cloud-api.wahooligan.com/#authentication
 common:
+  - type: Plans
+    url: plans/wahoo-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wahoo-rate-limits.yml
   - type: AgenticAccess
     url: agentic-access/wahoo-agentic-access.yml
   - type: DomainSecurity
