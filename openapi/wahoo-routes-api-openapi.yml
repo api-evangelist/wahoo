@@ -111,6 +111,13 @@ paths:
           description: Route deleted.
 components:
   parameters:
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
     PerPage:
       in: query
       name: per_page
@@ -126,13 +133,6 @@ components:
       schema:
         type: integer
         format: int64
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
-        default: 1
   schemas:
     Route:
       type: object
