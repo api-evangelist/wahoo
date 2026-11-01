@@ -1,4 +1,4 @@
-# Wahoo Fitness (wahoo)
+# Wahoo Fitness
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,130 +66,179 @@
 
 Wahoo Fitness is an Atlanta, Georgia endurance-training hardware and software company building cycling and run-training products: the ELEMNT family of GPS bike computers (ACE, ROAM, BOLT), the KICKR family of smart trainers and bikes (KICKR BIKE PRO/SHIFT, KICKR MOVE, KICKR CORE, KICKR ROLLR, KICKR RUN treadmill), TICKR and TRACKR heart-rate monitors and sensors (including TRACKR RADAR rear-facing radar), and SPEEDPLAY road and power pedals. Wahoo publishes a public Cloud API at api.wahooligan.com that allows third-party applications to authenticate Wahoo users via OAuth 2.0 and read/write user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. The Cloud API delivers workout_summary webhook events when the offline_data scope is granted. Companion AppleHealth / native iOS and Android APIs round out the developer surface; access is gated by the Wahoo API Agreement and an app-approval workflow that promotes integrations from sandbox to production.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/wahoo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/wahoo/refs/heads/main/apis.yml)
+**Areas:** Fitness · Cycling · Endurance Training · Bike Computers · Smart Trainers · Indoor Cycling · Heart Rate · Power Meters · GPS · Wearables · Hardware · FIT Files
 
-## Scope
+## Wahoo Fitness on APIs.io
 
-- **Type:** Index
-- **Position:** Provider
-- **Access:** 3rd-Party
+Everything profiled for Wahoo Fitness is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/wahoo/](https://apis.io/providers/wahoo/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Fitness
-- Cycling
-- Endurance Training
-- Bike Computers
-- Smart Trainers
-- Indoor Cycling
-- Heart Rate
-- Power Meters
-- GPS
-- Wearables
-- Hardware
-- FIT Files
-- Webhooks
-- OAuth
+- [Wahoo iOS API](https://apis.io/apis/wahoo/wahoo-ios-api/) — Native iOS SDK for interacting with Wahoo devices directly over BLE/ANT+ and integrating with the Wahoo Cloud. Documented at the Wahoo developer portal…
+- [Wahoo Android API](https://apis.io/apis/wahoo/wahoo-android-api/) — Native Android SDK for interacting with Wahoo devices over BLE/ANT+ and integrating with the Wahoo Cloud. Documented at the Wahoo developer portal under the…
+- [Wahoo Fitness Permissions API](https://apis.io/apis/wahoo/wahoo-permissions-api/) — Revoke OAuth app access.
+- [Wahoo Fitness Plans API](https://apis.io/apis/wahoo/wahoo-plans-api/) — Structured workout plans.
+- [Wahoo Fitness Power Zones API](https://apis.io/apis/wahoo/wahoo-power-zones-api/) — Cycling power training zones.
+- [Wahoo Fitness Routes API](https://apis.io/apis/wahoo/wahoo-routes-api/) — Navigation / course data backed by FIT files.
+- [Wahoo Fitness Users API](https://apis.io/apis/wahoo/wahoo-users-api/) — Authenticated user profile.
+- [Wahoo Fitness Workout File Uploads API](https://apis.io/apis/wahoo/wahoo-workout-file-uploads-api/) — Asynchronous FIT-file ingestion.
+- [Wahoo Fitness Workout Summaries API](https://apis.io/apis/wahoo/wahoo-workout-summaries-api/) — Aggregate results for a completed workout.
+- [Wahoo Fitness Workouts API](https://apis.io/apis/wahoo/wahoo-workouts-api/) — Workout records (CRUD + listing).
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### AsyncAPI (1)
 
-### Wahoo Cloud API
+Event-driven and webhook contracts.
 
-OAuth 2.0 REST API that connects Wahoo users to third-party mobile and web applications. Manages user profiles, workouts, workout summaries, FIT-file uploads, structured workout plans, GPS routes, and cycling power zones. Delivers workout_summary webhook events when offline_data scope is granted. Sandbox apps are promoted to production after Wahoo review.
+- [Wahoo Cloud Webhooks](https://apis.io/asyncapis/wahoo/wahoo-webhooks-asyncapi/)
 
-- **Human URL:** [https://cloud-api.wahooligan.com/](https://cloud-api.wahooligan.com/)
-- **Base URL:** `https://api.wahooligan.com`
+#### Event channels (1)
 
-#### Tags
+Individual events and webhooks the provider emits.
 
-- Fitness
-- Cycling
-- Workouts
-- OAuth
+- [workout_summary](https://apis.io/channels/wahoo/workout-summary/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://cloud-api.wahooligan.com/)
-- [Documentation](https://developers.wahooligan.com/cloud)
-- [Sign Up](https://developers.wahooligan.com/)
-- [Terms of Service](https://www.wahoofitness.com/wahoo-api-agreement)
-- [OpenAPI](openapi/wahoo-cloud-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wahoo-cloud-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wahoo-cloud-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [AsyncAPI](asyncapi/wahoo-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [JSON Schema](json-schema/wahoo-workout-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/wahoo-workout-summary-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/wahoo-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/wahoo-plans-pricing.yml)
-- [Rate Limits](rate-limits/wahoo-rate-limits.yml)
-- [Vocabulary](vocabulary/wahoo-vocabulary.yml)
-- [Example](examples/wahoo-workout-summary-event-example.json)
-- [Example](examples/wahoo-power-zones-example.json)
-- [Webhook](https://cloud-api.wahooligan.com/#webhooks)
-- [Authentication](https://cloud-api.wahooligan.com/#authentication)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Wahoo iOS API
+- [Wahoo Agentic Access](https://apis.io/agentic-access/wahoo/wahoo-agentic-access/)
 
-Native iOS SDK for interacting with Wahoo devices directly over BLE/ANT+ and integrating with the Wahoo Cloud. Documented at the Wahoo developer portal under the iOS product. Access is gated by the Wahoo API Agreement and an app-approval workflow.
+#### JSON Schema (2)
 
-- **Human URL:** [https://developers.wahooligan.com/](https://developers.wahooligan.com/)
+The data models the API reads and writes.
 
-#### Tags
+- [Wahoo Workout](https://apis.io/schemas/wahoo/wahoo-workout/)
+- [Wahoo Workout Summary](https://apis.io/schemas/wahoo/wahoo-workout-summary/)
 
-- Fitness
-- Cycling
-- iOS
-- SDK
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://developers.wahooligan.com/)
-- [Sign Up](https://developers.wahooligan.com/)
-- [Postman Collection](collections/wahoo-cloud-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wahoo-cloud-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Wahoo Context](https://apis.io/jsonld/wahoo/wahoo-context/)
 
-### Wahoo Android API
+#### Vocabulary (1)
 
-Native Android SDK for interacting with Wahoo devices over BLE/ANT+ and integrating with the Wahoo Cloud. Documented at the Wahoo developer portal under the Android product. Access is gated by the Wahoo API Agreement and an app-approval workflow.
+The provider's domain terms, defined.
 
-- **Human URL:** [https://developers.wahooligan.com/](https://developers.wahooligan.com/)
+- [Wahoo Vocabulary](https://apis.io/vocabularies/wahoo/wahoo-vocabulary/)
 
-#### Tags
+#### Examples (2)
 
-- Fitness
-- Cycling
-- Android
-- SDK
+Example requests and responses.
 
-#### Properties
+- [Wahoo Power Zones Example](https://apis.io/examples/wahoo/wahoo-power-zones-example/)
+- [Wahoo Workout Summary Event Example](https://apis.io/examples/wahoo/wahoo-workout-summary-event-example/)
 
-- [Documentation](https://developers.wahooligan.com/)
-- [Sign Up](https://developers.wahooligan.com/)
-- [Postman Collection](collections/wahoo-cloud-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wahoo-cloud-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Collections (9)
 
-## Common Properties
+Postman and Open Collection request collections.
+
+- [Wahoo Cloud API](https://apis.io/collections/wahoo/open-wahoo-cloud-api/)
+- [Wahoo Cloud Permissions API](https://apis.io/collections/wahoo/open-wahoo-permissions-api/)
+- [Wahoo Cloud Permissions Plans API](https://apis.io/collections/wahoo/open-wahoo-plans-api/)
+- [Wahoo Cloud Permissions Power Zones API](https://apis.io/collections/wahoo/open-wahoo-power-zones-api/)
+- [Wahoo Cloud Permissions Routes API](https://apis.io/collections/wahoo/open-wahoo-routes-api/)
+- [Wahoo Cloud Permissions Users API](https://apis.io/collections/wahoo/open-wahoo-users-api/)
+- [Wahoo Cloud Permissions Workout File Uploads API](https://apis.io/collections/wahoo/open-wahoo-workout-file-uploads-api/)
+- [Wahoo Cloud Permissions Workout Summaries API](https://apis.io/collections/wahoo/open-wahoo-workout-summaries-api/)
+- [Wahoo Cloud Permissions Workouts API](https://apis.io/collections/wahoo/open-wahoo-workouts-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Wahoo Fitness — asyncapi rules](https://apis.io/rules/wahoo/wahoo-asyncapi-spectral-rules/)
+- [Wahoo Fitness — jsonschema rules](https://apis.io/rules/wahoo/wahoo-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Wahoo Authentication](https://apis.io/security/wahoo/wahoo-authentication/)
+- [Wahoo Domain Security](https://apis.io/security/wahoo/wahoo-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Wahoo Scopes](https://apis.io/scopes/wahoo/wahoo-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Wahoo Plans Pricing](https://apis.io/plans/wahoo/wahoo-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Wahoo Rate Limits](https://apis.io/rate-limits/wahoo/wahoo-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.wahoofitness.com/)
-- [Developer Portal](https://developers.wahooligan.com/)
-- [API Reference](https://cloud-api.wahooligan.com/)
-- [A P I Agreement](https://www.wahoofitness.com/wahoo-api-agreement)
-- [Git Hub](https://github.com/wahoofitness)
+- [API reference](https://cloud-api.wahooligan.com/)
 - [Support](https://support.wahoofitness.com/)
-- [Training App](https://www.wahoofitness.com/devices/training-app)
-- [Wahoo X](https://wahooxsystm.com/)
 - [Blog](https://www.wahoofitness.com/blog)
-- [Twitter](https://twitter.com/wahoofitness)
-- [Instagram](https://www.instagram.com/wahoofitness/)
-- [YouTube](https://www.youtube.com/user/WahooFitness)
-- [LinkedIn](https://www.linkedin.com/company/wahoo-fitness/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 46.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 67.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 17.1 |
+| Developer ergonomics | 39.3 |
+| Access clarity | 28.9 |
+
+**Agent readiness 27.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | documented (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 31.1** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/wahoo/](https://apis.io/providers/wahoo/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Wahoo Fitness: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/wahoo/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
